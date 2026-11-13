@@ -1,0 +1,5 @@
+work/
+.DS_Store
+*.tar.gz
+*.zip
+node_modules/

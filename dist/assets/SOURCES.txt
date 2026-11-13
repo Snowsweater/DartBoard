@@ -1,0 +1,38 @@
+MediaPipe assets for DartBoard
+Downloaded: 2026-11-06
+SDK: @mediapipe/tasks-vision 0.10.22-rc.20250304
+SDK upstream: https://github.com/google-ai-edge/mediapipe
+SDK license: Apache License 2.0; see MEDIAPIPE-LICENSE.txt
+Pose model: MediaPipe Pose Landmarker Lite float16 version 1
+Model source/documentation: https://ai.google.dev/edge/mediapipe/solutions/vision/pose_landmarker
+Model is used for general pose estimation, not a custom darts classifier.
+
+Files:
+vision_bundle.mjs
+  Source: https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/vision_bundle.mjs
+  Bytes: 137809
+  SHA256: 3252b10e0fd26c4095e4b6ee545c1c898120b3a3813388ecd4876abe6f1399a9
+wasm/vision_wasm_internal.js
+  Source: https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/wasm/vision_wasm_internal.js
+  Bytes: 204284
+  SHA256: 4a97e2520ba506c680ecd6ba6acfb146888afa0e2746d57f205352bc6ebb82eb
+wasm/vision_wasm_internal.wasm
+  Source: https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/wasm/vision_wasm_internal.wasm
+  Bytes: 9574032
+  SHA256: f00ec4731faa23b3e714d00e88d4d10e2df5c0a427d3a2b4ae6e3526fdd14ef7
+wasm/vision_wasm_nosimd_internal.js
+  Source: https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/wasm/vision_wasm_nosimd_internal.js
+  Bytes: 204137
+  SHA256: 927def7b465c51b86e4b3060f93646aca4e27121f4b8fc0483786e407ea9cf1f
+wasm/vision_wasm_nosimd_internal.wasm
+  Source: https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.22-rc.20250304/wasm/vision_wasm_nosimd_internal.wasm
+  Bytes: 9448638
+  SHA256: 3821ea9b1f7fb8c549ef2a064ef5c85750bf375c545a49fd6eea0df44a95f1f4
+pose_landmarker_lite.task
+  Source: https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/1/pose_landmarker_lite.task
+  Bytes: 5777746
+  SHA256: 59929e1d1ee95287735ddd833b19cf4ac46d29bc7afddbbf6753c459690d574a
+MEDIAPIPE-LICENSE.txt
+  Source: https://raw.githubusercontent.com/google-ai-edge/mediapipe/master/LICENSE
+  Bytes: 12331
+  SHA256: 8707eef0533987efc5b155d64761eeb6e20793f50b9bd1a68dad1cf4719d0ed8

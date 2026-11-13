@@ -1,0 +1,8 @@
+{
+  "name": "dartboard-training",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Darts accuracy training, double-out strategy, and local pose review.",
+  "scripts": { "test": "node tests/engine.test.mjs", "check": "node --check dist/app.js && node --check dist/coach.js && node --check dist/engine.js" }
+}
