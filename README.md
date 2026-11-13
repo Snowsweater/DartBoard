@@ -1,6 +1,6 @@
 # DartBoard
 
-Train your accuracy, plan double-out finishes, and review your throwing motion. DartBoard runs on your computer; an OpenAI-hosted site is optional.
+Train your accuracy, plan double-out finishes, and review your throwing motion. DartBoard runs on your computer.
 
 ## Run locally
 
@@ -11,7 +11,7 @@ cd DartBoard-main
 npm start
 ```
 
-Open **http://localhost:4173/local.html**. No account, package installation, or OpenAI hosting is required. The server listens only on your computer. Stop it with Ctrl+C.
+Open **http://localhost:4173/local.html**. No account or package installation is required. The server listens only on your computer. Stop it with Ctrl+C.
 
 The included [local.html](local.html) contains the core interface, styles and application logic. Camera/ML features use the bundled `dist/assets/` files, so download the whole repository. Local mode makes no Google Fonts request. Camera and pose review should use localhost; directly double-clicking the HTML file depends on browser file-access policy and was blocked by the managed browser used for verification.
 
