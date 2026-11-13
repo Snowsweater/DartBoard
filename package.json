@@ -8,8 +8,10 @@
     "start": "node scripts/serve-local.mjs",
     "build:local": "node scripts/build-local.mjs",
     "test": "node tests/engine.test.mjs && node tests/local.test.mjs",
-    "check": "node --check dist/app.js && node --check dist/coach.js && node --check dist/engine.js && node --check scripts/build-local.mjs && node --check scripts/serve-local.mjs && node --check tests/browser-smoke.mjs",
-    "test:browser": "node tests/browser-smoke.mjs"
+    "check": "node --check dist/app.js && node --check dist/coach.js && node --check dist/engine.js && node --check scripts/build-local.mjs && node --check scripts/serve-local.mjs && node --check scripts/analyze-video.mjs && node --check tests/browser-smoke.mjs && node --check tests/pose-video.mjs",
+    "test:browser": "node tests/browser-smoke.mjs",
+    "test:pose": "node tests/pose-video.mjs",
+    "analyze:video": "node scripts/analyze-video.mjs"
   },
   "devDependencies": {
     "playwright-core": "^1.65.0"

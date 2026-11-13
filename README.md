@@ -15,9 +15,15 @@ Open **http://localhost:4173/local.html**. No account, package installation, or 
 
 The included [local.html](local.html) contains the core interface, styles and application logic. Camera/ML features use the bundled `dist/assets/` files, so download the whole repository. Local mode makes no Google Fonts request. Camera and pose review should use localhost; directly double-clicking the HTML file depends on browser file-access policy and was blocked by the managed browser used for verification.
 
-## Verification
+## Exhibition: your training video
 
-Browser checks: **10 passed, 0 failed**, with direct `file://` navigation blocked by the managed browser policy. Camera start, freeze, stop and permission/error handling were verified using a simulated device. [Read the verification report](docs/VERIFICATION.md).
+[![DartBoard locally analyzing the uploaded training clip](docs/showcase/local-coach.png)](docs/showcase/README.md)
+
+**A real 16.17-second clip, analyzed with DartBoard's pose model.** Of 161 sampled frames, 24 passed the right-arm landmark gate (14.9%). Selected visible elbow estimates were **90° at 7.50 s**, **78° at 7.70 s**, and **171° at 10.80 s**. Rejected frames remain gaps.
+
+These measurements show bent and extended arm positions. They do not prove correct posture. The rear-oblique camera view limits joint estimates, and the absent dartboard prevents hit-rate or score analysis. No professional reference was supplied.
+
+**[Read the video exhibition →](docs/showcase/README.md)** · [Watch the clip](docs/showcase/training-clip.mp4) · [Measurement excerpt](docs/showcase/measurements.csv) · [Browser/camera verification](docs/VERIFICATION.md)
 
 ## Use
 
@@ -29,7 +35,7 @@ Browser checks: **10 passed, 0 failed**, with direct `file://` navigation blocke
 
 ## Privacy and limits
 
-Sessions and preferences use browser localStorage. They do not sync between devices. CSV export provides a summary backup. Videos remain local and are released when leaving the coach; they are not uploaded or retained. Camera access starts only after an explicit action and browser permission.
+Sessions and preferences use browser localStorage. They do not sync between devices. CSV export provides a summary backup. Videos loaded into the app remain local and are released when leaving the coach; they are not uploaded or retained. The exhibition clip and screenshots are published separately with the contributor’s permission. Camera access starts only after an explicit action and browser permission.
 
 The experimental MediaPipe model estimates general-purpose pose landmarks. It has **not** been trained or validated on professional darts footage. A 2D elbow-angle difference is an observation, not an assessment of correct posture. Match camera angle, handedness and throw phase; check landmark placement. Detection rejects arm landmarks with visibility below 0.6 and falls back to manual marking.
 

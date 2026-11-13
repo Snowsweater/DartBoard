@@ -1,0 +1,33 @@
+{
+  "browser": "156.0.8078.79",
+  "source": "local.html",
+  "evidence": [
+    {
+      "time": 7.5,
+      "angle": "90°",
+      "status": "Pose estimated on your device. Check the shoulder, elbow, and wrist points before comparing. These are 2D estimates, not a validated darts assessment."
+    },
+    {
+      "time": 7.7,
+      "angle": "78°",
+      "status": "Pose estimated on your device. Check the shoulder, elbow, and wrist points before comparing. These are 2D estimates, not a validated darts assessment."
+    },
+    {
+      "time": 8.8,
+      "angle": "—",
+      "status": "The throwing arm was not visible with enough confidence. Use a clearer side-on frame, check your selected arm, or mark the three points manually."
+    },
+    {
+      "time": 9.4,
+      "angle": "131°",
+      "status": "Pose estimated on your device. Check the shoulder, elbow, and wrist points before comparing. These are 2D estimates, not a validated darts assessment."
+    },
+    {
+      "time": 10.8,
+      "angle": "171°",
+      "status": "Pose estimated on your device. Check the shoulder, elbow, and wrist points before comparing. These are 2D estimates, not a validated darts assessment."
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": []
+}
