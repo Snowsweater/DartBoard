@@ -4,5 +4,14 @@
   "private": true,
   "type": "module",
   "description": "Darts accuracy training, double-out strategy, and local pose review.",
-  "scripts": { "test": "node tests/engine.test.mjs", "check": "node --check dist/app.js && node --check dist/coach.js && node --check dist/engine.js" }
+  "scripts": {
+    "start": "node scripts/serve-local.mjs",
+    "build:local": "node scripts/build-local.mjs",
+    "test": "node tests/engine.test.mjs && node tests/local.test.mjs",
+    "check": "node --check dist/app.js && node --check dist/coach.js && node --check dist/engine.js && node --check scripts/build-local.mjs && node --check scripts/serve-local.mjs && node --check tests/browser-smoke.mjs",
+    "test:browser": "node tests/browser-smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.65.0"
+  }
 }

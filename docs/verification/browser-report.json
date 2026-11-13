@@ -1,0 +1,173 @@
+{
+  "startedAt": "2026-11-13T08:34:25.560Z",
+  "browser": "Chromium",
+  "tests": [
+    {
+      "name": "Accuracy logging, undo, reload persistence, saving and CSV export",
+      "status": "passed",
+      "durationMs": 2673,
+      "evidence": {
+        "savedDarts": 2,
+        "accuracyPercent": 50,
+        "threeDartAverage": 120,
+        "csvFilename": "dartboard-sessions-2026-11-13.csv"
+      }
+    },
+    {
+      "name": "Checkout routes, bogey setup and invalid-score guard",
+      "status": "passed",
+      "durationMs": 1444,
+      "evidence": {
+        "routes": [
+          121,
+          170,
+          32
+        ],
+        "bogey": 169,
+        "invalidInput": 1
+      }
+    },
+    {
+      "name": "Double-out bust resets full visit and checks out from 32",
+      "status": "passed",
+      "durationMs": 1489,
+      "evidence": {
+        "visitResetTo": 32,
+        "actualDarts": 3,
+        "averageDarts": 4,
+        "average": 24,
+        "checkout": "D16"
+      }
+    },
+    {
+      "name": "Mobile navigation and layout stay within the viewport",
+      "status": "passed",
+      "durationMs": 1993,
+      "evidence": [
+        {
+          "view": "overview",
+          "viewport": 390,
+          "document": 390
+        },
+        {
+          "view": "practice",
+          "viewport": 390,
+          "document": 390
+        },
+        {
+          "view": "checkout",
+          "viewport": 390,
+          "document": 390
+        },
+        {
+          "view": "coach",
+          "viewport": 390,
+          "document": 390
+        },
+        {
+          "view": "sessions",
+          "viewport": 390,
+          "document": 390
+        }
+      ]
+    },
+    {
+      "name": "Camera permission rejection offers video fallback",
+      "status": "passed",
+      "durationMs": 677,
+      "evidence": {
+        "nativeError": "NotAllowedError"
+      }
+    },
+    {
+      "name": "No camera hardware offers video fallback",
+      "status": "passed",
+      "durationMs": 614,
+      "evidence": {
+        "nativeError": "NotFoundError"
+      }
+    },
+    {
+      "name": "Synthetic camera starts, freezes, stops and releases on navigation",
+      "status": "passed",
+      "durationMs": 1275,
+      "evidence": {
+        "streams": 3,
+        "states": [
+          "ended",
+          "ended",
+          "ended"
+        ],
+        "audioRequested": false,
+        "source": "Chromium synthetic camera"
+      }
+    },
+    {
+      "name": "Standalone localhost camera and local pose model reject a nonhuman frame",
+      "status": "passed",
+      "durationMs": 1746,
+      "evidence": {
+        "source": "Chromium synthetic camera",
+        "model": "MediaPipe Pose Landmarker Lite",
+        "result": "No confident throwing arm detected",
+        "assets": [
+          {
+            "path": "/dist/assets/vision_bundle.mjs",
+            "status": 200
+          },
+          {
+            "path": "/dist/assets/wasm/vision_wasm_internal.js",
+            "status": 200
+          },
+          {
+            "path": "/dist/assets/wasm/vision_wasm_internal.wasm",
+            "status": 200
+          },
+          {
+            "path": "/dist/assets/pose_landmarker_lite.task",
+            "status": 200
+          }
+        ],
+        "allTracksStopped": true
+      }
+    },
+    {
+      "name": "Standalone local HTML on localhost",
+      "status": "passed",
+      "durationMs": 2517,
+      "evidence": {
+        "savedDarts": 2,
+        "accuracyPercent": 50,
+        "threeDartAverage": 120,
+        "csvFilename": "dartboard-sessions-2026-11-13.csv"
+      }
+    },
+    {
+      "name": "Standalone local HTML through file://",
+      "status": "blocked",
+      "durationMs": 148,
+      "error": "Direct file:// navigation blocked by managed Chromium policy: ERR_BLOCKED_BY_ADMINISTRATOR."
+    },
+    {
+      "name": "No uncaught browser JavaScript or console errors",
+      "status": "passed",
+      "durationMs": 1,
+      "evidence": {
+        "pageErrors": 0,
+        "consoleErrors": 0
+      }
+    }
+  ],
+  "consoleErrors": [],
+  "pageErrors": [],
+  "notes": [
+    "Camera success uses Chromium synthetic video; no physical camera quality or real darts coaching accuracy is asserted.",
+    "No-device and denied-permission cases exercise native browser responses.",
+    "Optional web fonts are replaced with an empty stylesheet so the tests are local and repeatable.",
+    "MediaPipe initialized XNNPACK CPU inference."
+  ],
+  "completedAt": "2026-11-13T08:34:40.952Z",
+  "passed": 10,
+  "failed": 0,
+  "blocked": 1
+}

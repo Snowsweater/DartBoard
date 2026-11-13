@@ -1,6 +1,23 @@
 # DartBoard
 
-A responsive, browser-local darts training app. The deployable website is in `dist/`; no build or runtime server is required.
+Train your accuracy, plan double-out finishes, and review your throwing motion. DartBoard runs on your computer; an OpenAI-hosted site is optional.
+
+## Run locally
+
+[Download the repository ZIP](https://github.com/Snowsweater/DartBoard/archive/refs/heads/main.zip), extract it, and keep the folder intact. Install Node.js 20 or newer, then run:
+
+```sh
+cd DartBoard-main
+npm start
+```
+
+Open **http://localhost:4173/local.html**. No account, package installation, or OpenAI hosting is required. The server listens only on your computer. Stop it with Ctrl+C.
+
+The included [local.html](local.html) contains the core interface, styles and application logic. Camera/ML features use the bundled `dist/assets/` files, so download the whole repository. Local mode makes no Google Fonts request. Camera and pose review should use localhost; directly double-clicking the HTML file depends on browser file-access policy and was blocked by the managed browser used for verification.
+
+## Verification
+
+Browser checks: **10 passed, 0 failed**, with direct `file://` navigation blocked by the managed browser policy. Camera start, freeze, stop and permission/error handling were verified using a simulated device. [Read the verification report](docs/VERIFICATION.md).
 
 ## Use
 
@@ -20,13 +37,14 @@ Professional clips are supplied by the visitor. The app links to the official PD
 
 ## Develop and verify
 
-Serve `dist/` from an HTTPS static host (HTTPS or localhost is required for camera access). The optional Google Fonts request has system-font fallbacks. ML assets are self-hosted and loaded only on demand.
-
-Requires Node 20+ for source checks only. No package installation is necessary.
+The static website remains in `dist/` and can be served by any HTTPS static host. The generated local page is maintained from the same source:
 
 ```sh
+npm run build:local
 npm test
 npm run check
 ```
 
-Tests cover every score 2–170 with 1–3 darts, returned route validity, double-out and bull, bogey numbers, bust reset and target analytics. The hosting identity lives in `.openai/hosting.json`.
+The app and local server need no npm packages. Browser testing uses Playwright separately; see [verification instructions](docs/VERIFICATION.md). Tests cover checkout routes for every score 2–170 with 1–3 darts, busts, analytics, local bundling, MIME types, video ranges and server path restrictions.
+
+Changes to `dist/` should be followed by `npm run build:local` and a commit of the regenerated `local.html`.

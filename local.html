@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f9fb">
+  <meta name="description" content="Make every dart count. Track your accuracy, practice smarter checkouts, and review your throwing form with DartBoard.">
+  <title>DartBoard — Make every dart count</title>
+  <link rel="icon" href="./dist/assets/favicon.svg" type="image/svg+xml">
+  <style>
+
+:root{--bg:#f7f8fa;--white:#fff;--ink:#202c3b;--muted:#828a96;--line:#e9ecf0;--accent:#ee7256;--accent-dark:#d95539;--peach:#fff1e9;--green:#437766;--mint:#eaf4ee;--font:'DM Sans',Arial,sans-serif;--heading:'Manrope',Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 var(--font);-webkit-font-smoothing:antialiased}button,input,select,textarea{font:inherit}button,a,input,select{ -webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}a{color:inherit;text-decoration:none}button{color:inherit}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:3px solid #f3a18b;outline-offset:4px}svg{display:block}button svg,a svg{width:20px;height:20px;flex-shrink:0}.sidebar{position:fixed;inset:0 auto 0 0;width:237px;background:#fff;border-right:1px solid var(--line);display:flex;flex-direction:column;padding:31px 22px 18px;z-index:20}.brand{display:flex;align-items:center;font-family:var(--heading);font-size:25px;letter-spacing:-1.2px;font-weight:800;margin:1px 0 57px 6px}.brand-dot{color:var(--accent)}.brand-mark{width:35px;height:35px;margin-right:8px;color:var(--accent)}.brand-mark svg{width:35px;height:35px;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}.nav-label{font-size:9px;letter-spacing:1.7px;color:#a3a9b1;font-weight:700;margin:0 14px 16px}.main-nav{display:flex;flex-direction:column;gap:7px}.main-nav a{height:46px;padding:0 14px;display:flex;align-items:center;gap:12px;color:#7b8490;font-weight:550;font-size:13px;border-radius:8px;position:relative}.main-nav a svg{width:19px;height:19px;stroke-width:1.65}.main-nav a.active{background:#fdf0eb;color:#d66d53}.main-nav a.active:after{content:'';height:6px;width:6px;border-radius:50%;background:var(--accent);margin-left:auto}.main-nav a:hover{background:#f8f8f9}.main-nav a.active:hover{background:#fdf0eb}.nav-tag{font-size:8px;padding:1px 5px;border:1px solid #d9e3dd;border-radius:4px;margin-left:auto;color:#668774;letter-spacing:.6px}.sidebar-tip{padding:17px 15px;background:#f7f8fa;border:1px solid #eff0f2;border-radius:10px;margin-top:45px}.sidebar-tip .small-icon{display:block;color:#929d91;margin-bottom:12px}.small-icon svg{width:22px;height:22px}.sidebar-tip strong{font-size:12px;font-weight:650}.sidebar-tip p{font-size:11px;line-height:1.9;color:#8e949e;margin:8px 0 15px}.text-button{border:0;background:none;padding:0;font-size:11px;font-weight:700;color:var(--accent)}.text-button span{margin-left:10px}.sidebar-bottom{margin-top:auto;padding-top:22px}.settings-link{border:0;background:none;display:flex;gap:12px;align-items:center;color:#8a929d;padding:12px 14px;font-size:13px;width:100%;margin-bottom:15px}.profile{border:0;border-top:1px solid var(--line);background:none;display:flex;align-items:center;padding:20px 0 0;gap:10px;width:100%;text-align:left}.avatar{width:36px;height:36px;background:#eee6da;border:3px solid white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:13px;color:#77664f;box-shadow:0 0 0 1px #eee9e1;flex-shrink:0}.profile strong{font-size:11px;font-weight:650;display:block}.profile small{font-size:10px;color:#969da6;display:block;margin-top:2px}.profile-more{margin-left:auto;color:#969da6}.app-shell{margin-left:237px}.topbar{height:79px;padding:0 42px;border-bottom:1px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:space-between}.breadcrumb{display:flex;align-items:center;gap:15px;font-size:11px;color:#9ba1ab}.breadcrumb strong{color:#626c79;font-weight:550}.breadcrumb-sep{color:#c6cbd1}.topbar-right{display:flex;align-items:center;gap:22px}.local-badge{font-size:10px;color:#939c98;display:flex;align-items:center;gap:7px}.local-badge>span{width:5px;height:5px;border-radius:50%;background:#9fb6a8}.icon-button{display:flex;align-items:center;justify-content:center;padding:0;background:none;border:none;width:30px;height:30px;color:#929aa4;border-radius:6px}.icon-button:hover{background:#f5f5f5}.icon-button svg{width:18px;height:18px}.avatar-small{width:30px;height:30px;font-size:10px}.topbar-right .icon-button{border-left:1px solid var(--line);width:45px;border-radius:0;padding-left:16px}#mobile-menu{display:none}main{max-width:1510px;margin:auto;padding:32px 42px 35px;min-height:calc(100vh - 141px)}.page-heading{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:26px;gap:20px}.eyebrow{font-size:10px;letter-spacing:1.9px;font-weight:700;color:#949ca7;margin:0 0 9px;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1{font:750 27px/1.35 var(--heading);letter-spacing:-.95px;margin-bottom:6px}.page-heading p{color:#8c95a1;font-size:12px;margin:0}.date-label{display:flex;align-items:center;gap:7px;font-size:10px;color:#929aa5;white-space:nowrap;margin-top:12px}.date-label svg{width:14px;height:14px}.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 255px;gap:20px;margin-bottom:25px}.hero{height:242px;position:relative;background:#fae9df;border-radius:13px;overflow:hidden;display:flex;align-items:center;padding:27px 32px}.hero:after{content:'';position:absolute;right:0;width:260px;height:260px;bottom:-114px;border:1px solid #eddbd0;border-radius:50%;pointer-events:none}.hero-copy{position:relative;z-index:2}.hero .eyebrow{color:#b9826a;letter-spacing:1.6px;font-size:9px;margin-bottom:13px;display:flex;align-items:center;gap:6px}.hero .eyebrow:before{content:'';width:5px;height:5px;background:#ce9c81;border-radius:50%}.hero h2{font:750 31px/1.25 var(--heading);letter-spacing:-1.25px;margin-bottom:11px}.hero h2 span{color:#da7657}.hero p{font-size:11px;line-height:1.8;color:#9f887a;margin-bottom:20px;max-width:240px}.primary-button,.secondary-button,.dark-button{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;border-radius:7px;padding:11px 16px;font-size:11px;font-weight:650;transition:background .15s,transform .15s;min-height:37px}.primary-button{background:var(--accent);color:#fff;box-shadow:0 4px 8px #bd71501a}.primary-button:hover{background:var(--accent-dark);transform:translateY(-1px)}.primary-button svg{width:15px;height:15px}.secondary-button{background:white;color:#66717f;border:1px solid #e4e8ec}.secondary-button:hover{background:#f6f7f9}.secondary-button svg{width:15px;height:15px}.dark-button{background:#293747;color:white}.dark-button:hover{background:#405269}.hero-art{position:absolute;right:-9px;top:-8px;width:307px;height:265px;transform:rotate(-10deg)}.hero-art:before{content:'';position:absolute;width:215px;height:32px;background:#7a655429;border-radius:50%;bottom:6px;right:22px;filter:blur(10px);transform:rotate(10deg)}.hero-art .dartboard-svg{position:absolute;top:10px;left:12px;width:260px;height:260px;filter:drop-shadow(9px 13px 7px #715c572e)}.hero-spark{position:absolute;font-size:27px;font-weight:400;color:#bd8b6f;right:29px;top:25px}.hero-score{position:absolute;bottom:35px;right:27px;background:#fffefa;box-shadow:0 5px 15px #9b7a6421;border-radius:7px;transform:rotate(10deg);padding:7px 12px;display:flex;gap:7px;align-items:center;z-index:2}.hero-score .score-icon{height:23px;width:23px;border-radius:50%;background:#ecf3e7;color:#65885a;display:flex;align-items:center;justify-content:center;font-size:13px}.hero-score strong{font-size:10px;display:block}.hero-score small{display:block;font-size:8px;color:#939b92}.daily-card{border-radius:13px;background:#edf2ed;padding:22px 23px;position:relative;overflow:hidden}.daily-top{display:flex;align-items:center;justify-content:space-between;font-size:9px;color:#7e9285;font-weight:650;letter-spacing:1.2px;margin-bottom:18px}.daily-top svg{width:17px;height:17px}.daily-card h3{font:750 21px/1.4 var(--heading);letter-spacing:-.6px;margin-bottom:17px}.daily-progress{display:flex;align-items:baseline;gap:5px}.daily-progress strong{font:750 26px/1 var(--heading);letter-spacing:-1px}.daily-progress span{color:#96a297;font-size:11px}.progress-track{height:5px;background:#d9e3d9;border-radius:4px;margin:10px 0 10px;overflow:hidden}.progress-track span{height:100%;display:block;background:#789a7c;border-radius:4px;transition:width .3s}.daily-bottom{display:flex;justify-content:space-between;font-size:9px;color:#839488}.daily-card .leaf-mark{position:absolute;right:12px;bottom:-20px;font-size:120px;color:#e2eae0;line-height:1;z-index:0;transform:rotate(-25deg);pointer-events:none}.daily-card>*:not(.leaf-mark){position:relative;z-index:1}.section-heading{display:flex;justify-content:space-between;align-items:center;margin:0 0 14px}.section-heading h2{font:750 15px/1.5 var(--heading);letter-spacing:-.3px;margin:0}.section-heading .subtle{font-size:10px;color:#a0a7b0}.sample-pill{font-size:9px;color:#8a939e;display:inline-flex;align-items:center;gap:5px}.sample-pill i{height:5px;width:5px;border-radius:50%;background:#b6bec8}.stats-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:26px}.stat-card{border-radius:10px;border:1px solid var(--line);background:white;padding:17px 18px 14px;position:relative}.stat-top{display:flex;align-items:center;justify-content:space-between;color:#8d96a2;font-size:10px;font-weight:500;margin-bottom:12px}.stat-top svg{width:16px;height:16px;color:#adb4be}.stat-value{font:750 27px/1.2 var(--heading);letter-spacing:-1px;margin-bottom:8px}.stat-value small{font:500 11px var(--font);letter-spacing:0;color:#9aa2ae;margin-left:4px}.stat-foot{display:flex;gap:7px;align-items:center;font-size:8px;color:#a0a7b1}.trend-up{background:#edf5ee;color:#6b9271;border-radius:4px;padding:2px 5px;font-size:8px;white-space:nowrap}.stat-foot .mini-line{margin-left:auto;color:#a2b9a3}.dashboard-lower{display:grid;grid-template-columns:minmax(0,1.53fr) minmax(270px,1fr);gap:20px;margin-bottom:26px}.panel{border:1px solid var(--line);background:white;border-radius:11px;padding:21px 23px;min-width:0}.panel-title{font:750 14px/1.4 var(--heading);letter-spacing:-.25px;margin-bottom:4px}.panel-subtitle{font-size:10px;color:#98a0aa;margin-bottom:0}.panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.small-select{font-size:9px;color:#8a939e;padding:6px 24px 6px 10px;border:1px solid #e6e9ee;background:white;border-radius:5px;cursor:pointer}.chart-legend{display:flex;gap:16px;font-size:9px;color:#a0a7b0;margin-top:19px;margin-left:3px}.chart-legend span{display:flex;gap:5px;align-items:center}.chart-legend i{display:block;height:5px;width:5px;border-radius:50%;background:var(--accent)}.chart-legend span:last-child i{background:#b6c9bb}.chart-container{height:182px;margin:4px -5px -5px}.chart-container svg{width:100%;height:100%;overflow:visible}.practice-list{margin-top:18px}.practice-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid #f0f1f4;width:100%;text-align:left;background:none;border-top:0;border-left:0;border-right:0}.practice-row:last-child{border-bottom:0;padding-bottom:0}.practice-row:first-child{padding-top:0}.practice-row:hover .row-arrow{color:var(--accent);transform:translateX(3px)}.tool-icon{width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border-radius:9px;background:#fdf0e8;color:#cd9673}.tool-icon svg{width:18px;height:18px}.tool-icon.green{background:#eef4ef;color:#7c9a85}.tool-icon.blue{background:#edf1f6;color:#8c9aad}.practice-row strong{display:block;font-size:11px;font-weight:650;margin-bottom:3px}.practice-row small{display:block;color:#a0a7b1;font-size:9px}.row-arrow{margin-left:auto;color:#b0b6c0;transition:all .2s;font-size:16px}.recent-panel{padding:0;overflow:hidden}.recent-panel .panel-head{padding:20px 23px 15px}.view-link{font-size:10px;color:#989fa9;background:none;border:0;display:flex;align-items:center;gap:8px}.view-link:hover{color:var(--accent)}.session-table{border-collapse:collapse;text-align:left;width:100%;font-size:10px}.session-table th{background:#fcfcfd;color:#a0a7b1;font-size:9px;letter-spacing:.2px;font-weight:500;border-top:1px solid #f0f2f5;border-bottom:1px solid #f0f2f5;padding:10px 23px}.session-table td{padding:13px 23px;border-bottom:1px solid #f0f2f5;color:#8a94a0}.session-table tbody tr:last-child td{border-bottom:0}.session-table tbody tr{cursor:pointer}.session-table tbody tr:hover{background:#fcfcfd}.session-table .session-name{color:#667280;font-weight:550;display:flex;align-items:center;gap:9px}.session-name svg{color:#a4b3a7;width:15px;height:15px}.type-badge{padding:3px 7px;background:#f2f5f3;border-radius:4px;font-size:8px;color:#839c89;white-space:nowrap}.type-badge.peach{background:#fdf2ec;color:#bf967e}.table-arrow{text-align:right;font-size:16px}.app-footer{max-width:1510px;margin:0 auto;padding:7px 42px 20px;display:flex;justify-content:space-between;font-size:9px;color:#adb3bd}.dot-separator{margin:0 7px;color:#c5cad1}.footer-target{margin-left:7px;color:#b3bcb5;font-size:14px}.empty-state{padding:42px 25px;text-align:center;color:#929ba6}.empty-state svg{width:34px;height:34px;margin:0 auto 14px;color:#b3beb5}.empty-state h3{font-size:15px;color:#6b7888;margin-bottom:6px}.empty-state p{font-size:12px}.toolbar{display:flex;align-items:center;gap:10px}.tab-group{display:flex;background:#e9ecf1;padding:4px;border-radius:8px;gap:3px;width:max-content}.tab-group button{border:0;background:transparent;padding:8px 16px;border-radius:5px;font-size:11px;color:#83909c}.tab-group button.active{background:white;color:#344252;box-shadow:0 2px 5px #29374709}.practice-layout{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,1fr);gap:22px;align-items:start}.board-wrap{position:relative;max-width:440px;margin:10px auto 0}.dartboard-svg{width:100%;height:auto}.interactive-board [data-segment]{cursor:pointer;transition:filter .13s}.interactive-board [data-segment]:hover{filter:brightness(1.5);stroke:#fff;stroke-width:1.5}.board-hint{font-size:10px;color:#9aa4ae;text-align:center;margin:5px 0 2px}.control-label{font-size:10px;color:#929ca7;font-weight:600;display:block;margin-bottom:7px}.input,select.input{width:100%;border:1px solid #e0e5eb;border-radius:7px;background:white;padding:11px 12px;color:#546170;min-height:41px}.form-row{display:flex;gap:12px;margin-bottom:17px}.form-field{flex:1;min-width:0}.start-training{margin-top:23px;padding:18px 20px;background:#fcf7f3;border-radius:9px;display:flex;align-items:center;gap:16px}.start-training p{font-size:11px;color:#9f9185;margin-bottom:0}.session-summary{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:17px;margin-bottom:18px}.big-remaining{font:750 39px/1.2 var(--heading);letter-spacing:-2px}.remaining-label{font-size:9px;color:#9ba3ac;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}.session-target{background:#fdf0e9;border:1px solid #f7e2d5;border-radius:9px;padding:12px 18px;text-align:center;min-width:94px}.session-target small{display:block;font-size:9px;color:#c49e86;margin-bottom:2px}.session-target strong{font:750 25px var(--heading);color:#cc8866}.multipliers{display:flex;gap:5px;margin-bottom:12px}.multipliers button{flex:1;border:1px solid #e6e9ee;padding:9px 8px;background:white;border-radius:6px;font-size:10px;color:#8793a0}.multipliers button.active{background:#2b3a49;color:white;border-color:#2b3a49}.number-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.number-grid button{border:1px solid #e6e9ed;background:#fbfcfd;padding:10px;border-radius:6px;font-size:12px;font-weight:600;color:#6b7987}.number-grid button:hover{background:#fdf0e9;border-color:#efb8a2;color:#cd7955}.special-scores{display:flex;gap:7px;margin-top:7px}.special-scores button{flex:1;border:1px solid #e6e9ed;background:#fbfcfd;padding:10px;border-radius:6px;font-size:10px;color:#798795}.throw-log{display:flex;gap:7px;flex-wrap:wrap;min-height:35px;margin:16px 0}.throw-chip{background:#f1f4f6;color:#84909a;border-radius:5px;padding:5px 9px;font-size:10px}.throw-chip.hit{background:#eaf3ed;color:#6a9175}.live-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding-top:16px;border-top:1px solid var(--line);margin-bottom:17px}.live-stats strong{font:750 21px var(--heading);display:block}.live-stats small{font-size:9px;color:#99a3ae}.notice{font-size:11px;line-height:1.7;background:#f3f6f8;border-radius:8px;padding:12px 15px;color:#8b96a0;margin-bottom:20px}.notice.peach{background:#fff1e8;color:#b18165}.practice-actions{display:flex;justify-content:space-between;align-items:center;margin-top:16px;gap:12px}.checkout-layout{display:grid;grid-template-columns:300px minmax(0,1fr);gap:22px}.checkout-score{font:750 64px/1 var(--heading);letter-spacing:-3px;text-align:center;margin:24px 0}.score-input{font:750 50px var(--heading);text-align:center;letter-spacing:-2px;width:100%;border:0;border-bottom:2px solid #eef0f3;color:#283848;border-radius:0;background:white;padding:8px;margin:12px 0 23px}.quick-scores{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}.quick-scores button{font-size:10px;background:#f6f7f9;border:1px solid #e9ecf0;border-radius:5px;padding:7px 11px;color:#8b97a4}.quick-scores button:hover{border-color:#edaa91;background:#fff3ed}.checkout-route{display:flex;align-items:center;gap:12px;margin:28px 0}.route-dart{flex:1;text-align:center;border:1px solid #e9edf1;border-radius:10px;padding:19px 10px;background:#fbfcfd;min-width:0}.route-dart small{color:#a0a9b3;font-size:9px;display:block;margin-bottom:7px}.route-dart strong{font:750 31px var(--heading);letter-spacing:-1px}.route-dart p{font-size:9px;color:#9aa5ae;margin:3px 0 0}.route-dart.finish{background:#ecf4ee;border-color:#deebe0}.route-dart.finish strong{color:#618b6e}.route-arrow{font-size:16px;color:#b0b9c2;flex-shrink:0}.route-message{font-size:12px;color:#8a96a1;line-height:1.8}.alternative{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;font-size:11px;color:#8f9ba7}.alternative strong{color:#697b8b;word-spacing:9px;font-weight:600}.strategy-note{padding:16px;background:#fbf5ee;border-radius:8px;margin-top:16px}.strategy-note h3{font-size:11px;color:#b39272;margin-bottom:6px}.strategy-note p{font-size:11px;line-height:1.8;color:#a89986;margin:0}.all-sessions-panel{margin-top:22px}.session-controls{display:flex;justify-content:space-between;align-items:center;gap:15px}.session-controls select{width:170px}.toast{position:fixed;bottom:28px;left:calc(50% + 95px);transform:translate(-50%,20px);background:#2d3d4b;color:white;border-radius:9px;padding:13px 22px;font-size:12px;box-shadow:0 8px 30px #14213624;z-index:100;opacity:0;pointer-events:none;transition:all .2s}.toast.visible{opacity:1;transform:translate(-50%,0)}dialog{border:0;border-radius:14px;padding:0;max-width:calc(100vw - 36px);width:470px;color:var(--ink);box-shadow:0 24px 80px #182b3b29}dialog::backdrop{background:#24354263;backdrop-filter:blur(3px)}.modal-inner{padding:29px}.modal-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}.modal-top h2{font:750 21px var(--heading);letter-spacing:-.6px;margin:0}.modal-inner>p{font-size:12px;line-height:1.85;color:#929da8}.modal-inner label{display:block;margin-bottom:15px}.modal-inner .modal-buttons{display:flex;justify-content:flex-end;gap:9px;margin-top:25px}.modal-inner h3{font-size:12px;margin-bottom:7px}.modal-inner ul{padding-left:20px;font-size:12px;line-height:1.9;color:#8c98a5}.result-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;margin:25px 0}.result-stats strong{display:block;font:750 25px var(--heading);letter-spacing:-1px;color:#526a5a}.result-stats small{font-size:10px;color:#96a099}.demo-strip{margin-top:14px;font-size:9px;color:#a9afb6;display:flex;align-items:center;gap:6px}.demo-strip span{height:4px;width:4px;border-radius:50%;background:#bdc5ce}.delete-button{color:#bd806c}.body-overlay{display:none}#main>section{animation:fadeIn .25s ease-out}@keyframes fadeIn{from{opacity:.4;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1500px){main{padding-top:39px}.hero{height:270px}.hero-art{right:14px;top:0;transform:rotate(-10deg) scale(1.1);transform-origin:center}.hero h2{font-size:36px}.hero p{font-size:12px;max-width:280px}.hero-grid{grid-template-columns:minmax(0,1fr) 300px}.daily-card{padding:28px}.daily-card h3{font-size:24px;margin-bottom:22px}.stat-card{padding:20px 22px}.stat-value{font-size:31px}.chart-container{height:207px}.practice-row{padding:18px 0}}
+@media(max-width:1200px){.sidebar{width:205px;padding-left:17px;padding-right:17px}.brand{font-size:22px;margin-left:4px}.brand-mark,.brand-mark svg{width:30px;height:30px}.app-shell{margin-left:205px}.topbar{padding:0 28px}main{padding:29px 28px}.app-footer{padding-left:28px;padding-right:28px}.hero{padding:25px}.hero-grid{grid-template-columns:minmax(0,1fr) 222px;gap:16px}.hero-art{right:-50px;transform:rotate(-10deg) scale(.9)}.hero h2{font-size:28px}.hero p{max-width:207px;font-size:10px}.daily-card{padding:22px 20px}.daily-card h3{font-size:20px}.dashboard-lower{grid-template-columns:minmax(0,1.4fr) minmax(250px,1fr);gap:16px}.stats-grid{gap:12px}.stat-card{padding:15px}.stat-top{font-size:9px}.stat-foot{font-size:7px;gap:4px}.stat-value{font-size:25px}.panel{padding:19px}.session-table th,.session-table td{padding-left:19px;padding-right:19px}.checkout-layout{grid-template-columns:250px minmax(0,1fr)}.checkout-route{gap:7px}.route-dart strong{font-size:25px}}
+@media(max-width:1000px){.hero-art{opacity:.9;right:-80px;transform:rotate(-10deg) scale(.8)}.hero-copy{max-width:230px}.hero-grid{grid-template-columns:1fr 205px}.hero h2{font-size:25px}.hero p{max-width:180px}.hero{padding:22px}.daily-card{padding:22px 18px}.daily-card h3{font-size:18px}.stats-grid{grid-template-columns:repeat(2,1fr)}.dashboard-lower{grid-template-columns:1fr}.practice-list{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.practice-row{border:0;padding:0;flex-wrap:wrap;gap:8px}.practice-row .row-arrow{display:none}.practice-row strong{font-size:10px}.practice-row small{font-size:8px}.practice-row .tool-icon{width:33px;height:33px}.practice-layout{grid-template-columns:1fr}.practice-layout>.panel:first-child{max-width:none}.board-wrap{max-width:380px}.checkout-layout{grid-template-columns:1fr}.checkout-layout .score-input{max-width:240px;display:block;margin:0 auto 20px}.checkout-layout .form-row{display:inline-block;vertical-align:top;width:48%;margin-bottom:0}.checkout-layout .quick-scores{display:inline-flex;vertical-align:top;width:48%;margin-top:4px;padding-left:12px}.checkout-layout>.panel:first-child>.primary-button{margin-top:15px}.date-label{display:none}.session-table th,.session-table td{padding:12px;font-size:9px}.session-table th:nth-child(5),.session-table td:nth-child(5){display:none}}
+@media(max-width:760px){.sidebar{width:210px;transform:translateX(-100%);transition:transform .2s;box-shadow:10px 0 30px #25374517}.sidebar.open{transform:translateX(0)}.app-shell{margin-left:0}.topbar{height:65px;padding:0 20px}.topbar-right{gap:12px}.topbar-right .icon-button{padding-left:10px;width:32px}#mobile-menu{display:flex;margin-right:4px}.breadcrumb{gap:10px}.local-badge{font-size:9px}.local-badge>span{width:4px;height:4px}main{padding:25px 20px;min-height:calc(100vh - 125px)}.app-footer{padding:8px 20px 20px;font-size:8px}.page-heading{margin-bottom:21px}h1{font-size:25px}.page-heading p{font-size:11px}.hero-grid{grid-template-columns:1fr 205px}.hero{height:240px}.hero-art{right:-95px;opacity:.55}.hero h2{font-size:27px}.hero p{max-width:170px}.hero-copy{max-width:230px}.hero .primary-button{font-size:10px}.daily-card h3{font-size:19px}.stat-foot{font-size:9px}.stat-top{font-size:11px}.stat-value{font-size:29px}.stat-card{padding:17px}.stats-grid{gap:12px}.toast{left:50%;min-width:260px;text-align:center;font-size:11px}.section-heading .subtle{font-size:9px}.sample-pill{font-size:8px}.toolbar .secondary-button{padding:10px;font-size:10px}.app-footer>span:last-child{display:none}.practice-layout{gap:16px}.panel{padding:19px}.session-controls{flex-wrap:wrap}.session-controls .notice{margin:0}.session-table th:nth-child(4),.session-table td:nth-child(4){display:none}}
+@media(max-width:520px){.hero-grid{grid-template-columns:1fr;gap:13px}.hero{height:238px;padding:26px}.hero h2{font-size:29px}.hero-art{right:-24px;opacity:1;transform:rotate(-10deg) scale(.85)}.hero p{max-width:175px}.daily-card{padding:17px 20px;display:grid;grid-template-columns:1fr 105px;column-gap:15px;align-items:center;min-height:113px}.daily-top{font-size:8px;margin-bottom:6px}.daily-card h3{font-size:16px;margin-bottom:0;grid-column:1;grid-row:2/5;line-height:1.3}.daily-card h3 br{display:none}.daily-progress{grid-row:1/3;grid-column:2;justify-content:flex-end}.daily-progress strong{font-size:25px}.progress-track{grid-row:3;grid-column:2;margin:3px 0 6px}.daily-bottom{grid-column:2;font-size:8px}.daily-bottom span:last-child{display:none}.daily-card .leaf-mark{font-size:120px;bottom:-40px;right:100px}.stats-grid{gap:10px}.stat-card{padding:14px}.stat-top{font-size:9px}.stat-value{font-size:25px}.stat-foot{font-size:7px}.stat-foot .mini-line{display:none}.hero-score{bottom:31px;right:29px}.hero-art .dartboard-svg{left:32px}.hero-copy{max-width:230px}.practice-list{display:flex;flex-direction:column;gap:16px}.practice-row{flex-wrap:nowrap;gap:11px}.practice-row strong{font-size:11px}.practice-row small{font-size:9px}.practice-row .row-arrow{display:block}.chart-container{height:165px}.chart-legend{font-size:8px}.session-table th,.session-table td{padding:11px 12px}.session-table th:nth-child(3),.session-table td:nth-child(3){display:none}.session-table .session-name{font-size:9px;gap:6px}.recent-panel .panel-head{padding:17px 18px}.page-heading .toolbar .secondary-button{font-size:0;width:35px;height:35px;padding:8px}.page-heading .toolbar .secondary-button svg{width:16px}.route-dart strong{font-size:23px}.checkout-route{gap:5px}.route-arrow{font-size:13px}.route-dart{padding:15px 5px}.route-dart small{font-size:8px}.route-dart p{font-size:8px}.checkout-layout .quick-scores{padding-left:6px}.quick-scores button{padding:6px 8px}.session-controls select{width:140px}.local-badge{display:none}.form-row{gap:9px}.input{padding:10px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+[hidden]{display:none!important}
+
+</style>
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#overview" aria-label="DartBoard home"><span class="brand-mark"><svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11"/><circle cx="16" cy="16" r="6"/><path d="m16 16 12-12m-1 0h-5m6 1v5"/></svg></span>DartBoard<span class="brand-dot">.</span></a>
+    <div class="nav-label">YOUR TRAINING SPACE</div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="#overview" data-nav="overview"></a>
+      <a href="#practice" data-nav="practice"></a>
+      <a href="#coach" data-nav="coach"></a>
+      <a href="#checkout" data-nav="checkout"></a>
+      <a href="#sessions" data-nav="sessions"></a>
+    </nav>
+    <div class="sidebar-tip"><span class="small-icon" id="tip-icon"></span><strong>Consistency is a skill.</strong><p>A few focused minutes today.<br>A better throw tomorrow.</p><button class="text-button" id="quick-drill">Try a quick drill <span>↗</span></button></div>
+    <div class="sidebar-bottom"><button class="settings-link" id="settings-btn"></button><button class="profile" id="profile-btn"><span class="avatar">Y</span><span><strong id="profile-name">Your practice</strong><small>Keep showing up.</small></span><span class="profile-more">⋯</span></button></div>
+  </aside>
+  <div class="app-shell">
+    <header class="topbar"><div class="breadcrumb"><button id="mobile-menu" class="icon-button" aria-label="Toggle menu">☰</button><span>Workspace</span><span class="breadcrumb-sep">/</span><strong id="page-crumb">Overview</strong></div><div class="topbar-right"><span class="local-badge"><span></span>Saved on this device</span><button class="icon-button" id="help-btn" aria-label="Training tips"></button><span class="avatar avatar-small" id="header-avatar">Y</span></div></header>
+    <div id="local-file-note" class="notice" style="margin:18px 24px 0" hidden><strong>Local file mode.</strong> Direct-file support depends on your browser. For camera and pose analysis, run <code>npm start</code> from this folder, then open <a href="http://localhost:4173/local.html" style="text-decoration:underline">http://localhost:4173/local.html</a>. The app and model run on your computer.</div>
+    <main id="main" tabindex="-1"></main>
+    <footer class="app-footer"><span>DartBoard <span class="dot-separator">·</span> A little better, every throw.</span><span>Practice with purpose <span class="footer-target">◎</span></span></footer>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="modal"><div id="modal-content"></div></dialog>
+  <script type="module">
+const __modules = Object.create(null);
+
+__modules["./engine.js"] = (() => {
+const __moduleUrl = new URL("./dist/engine.js", import.meta.url);
+/** Pure darts rules and training analytics. Segment IDs are S1…S20, D1…D20,
+ * T1…T20, SB (25), DB (50) and MISS. All finishes use double-out. */
+const SEGMENTS = Object.freeze([
+  ...Array.from({length: 20}, (_, i) => ({id: `S${i + 1}`, label: `${i + 1}`, score: i + 1, number: i + 1, multiplier: 1, isDouble: false})),
+  ...Array.from({length: 20}, (_, i) => ({id: `D${i + 1}`, label: `D${i + 1}`, score: (i + 1) * 2, number: i + 1, multiplier: 2, isDouble: true})),
+  ...Array.from({length: 20}, (_, i) => ({id: `T${i + 1}`, label: `T${i + 1}`, score: (i + 1) * 3, number: i + 1, multiplier: 3, isDouble: false})),
+  {id: 'SB', label: '25', score: 25, number: 25, multiplier: 1, isDouble: false},
+  {id: 'DB', label: 'Bull', score: 50, number: 25, multiplier: 2, isDouble: true},
+  {id: 'MISS', label: 'Miss', score: 0, number: 0, multiplier: 0, isDouble: false}
+].map(Object.freeze));
+
+const byId = new Map(SEGMENTS.map(segment => [segment.id, segment]));
+const aliases = {'25': 'SB', '50': 'DB', 'BULL': 'DB', 'BULLSEYE': 'DB', 'D25': 'DB', 'S25': 'SB', 'OUTER BULL': 'SB', 'INNER BULL': 'DB', '0': 'MISS', 'M': 'MISS'};
+
+function parseSegment(value) {
+  if (value && typeof value === 'object') value = value.id ?? value.segment;
+  if (value == null) return null;
+  let id = String(value).trim().toUpperCase();
+  id = aliases[id] || id;
+  if (/^(?:[1-9]|1\d|20)$/.test(id)) id = `S${id}`;
+  return byId.get(id) || null;
+}
+
+/** A bust loses the whole visit, so pass the score at the visit's start. */
+function applyThrow(remaining, value, turnStart = remaining) {
+  const segment = parseSegment(value);
+  if (!segment) throw new TypeError('Choose a valid dartboard segment.');
+  if (!Number.isInteger(remaining) || remaining < 2 || !Number.isInteger(turnStart) || turnStart < remaining) {
+    throw new RangeError('Remaining and visit-start scores must be valid whole numbers.');
+  }
+  const next = remaining - segment.score;
+  const reason = next < 0 ? 'Score exceeded' : next === 1 ? 'Cannot leave 1' : next === 0 && !segment.isDouble ? 'Finish on a double' : null;
+  if (reason) return {remaining: turnStart, bust: true, checkout: false, reason, segment: segment.id};
+  return {remaining: next, bust: false, checkout: next === 0, reason: next === 0 ? 'Checkout' : null, segment: segment.id};
+}
+
+const doubles = SEGMENTS.filter(segment => segment.isDouble);
+const doubleByScore = new Map(doubles.map(segment => [segment.score, segment]));
+const scoringSegments = SEGMENTS.filter(segment => segment.score > 0);
+const preferredDoubles = [20, 16, 18, 12, 10, 8, 6, 4, 2, 14, 15, 9, 5, 3, 1, 11, 13, 17, 19, 7, 25];
+const doubleRank = number => preferredDoubles.indexOf(number) * 2;
+// Familiar three-dart routes make the plan easy to rehearse. Alternatives
+// remain available; a valid shorter finish always takes priority.
+const familiarRoutes = {
+  111: 'T20 S11 D20', 112: 'T20 S12 D20', 113: 'T20 S13 D20', 114: 'T20 S14 D20',
+  115: 'T20 S15 D20', 116: 'T20 S16 D20', 117: 'T20 S17 D20', 118: 'T20 S18 D20',
+  119: 'T19 T10 D16', 120: 'T20 S20 D20', 121: 'T20 T11 D14', 122: 'T18 T20 D4',
+  123: 'T19 T16 D9', 124: 'T20 T16 D8', 125: 'SB T20 D20', 126: 'T19 T19 D6',
+  127: 'T20 T17 D8', 128: 'T18 T14 D16', 129: 'T19 T16 D12', 130: 'T20 T20 D5',
+  131: 'T20 T13 D16', 132: 'SB T19 DB', 133: 'T20 T19 D8', 134: 'T20 T14 D16',
+  135: 'SB T20 DB', 136: 'T20 T20 D8', 137: 'T20 T19 D10', 138: 'T20 T18 D12',
+  139: 'T20 T13 D20', 140: 'T20 T20 D10', 141: 'T20 T19 D12', 142: 'T20 T14 D20',
+  143: 'T20 T17 D16', 144: 'T20 T20 D12', 145: 'T20 T15 D20', 146: 'T20 T18 D16',
+  147: 'T20 T17 D18', 148: 'T20 T20 D14', 149: 'T20 T19 D16', 150: 'T20 T18 D18',
+  151: 'T20 T17 D20', 152: 'T20 T20 D16', 153: 'T20 T19 D18', 154: 'T20 T18 D20',
+  155: 'T20 T19 D19', 156: 'T20 T20 D18', 157: 'T20 T19 D20', 158: 'T20 T20 D19',
+  160: 'T20 T20 D20', 161: 'T20 T17 DB', 164: 'T20 T18 DB', 167: 'T20 T19 DB',
+  170: 'T20 T20 DB'
+};
+function routeCost(route) {
+  let cost = route.length * 1000 + doubleRank(route.at(-1).number);
+  for (const [index, segment] of route.slice(0, -1).entries()) {
+    if (segment.multiplier === 1) cost += 1 + (20 - Math.min(segment.number, 20)) * 0.12;
+    if (segment.multiplier === 2) cost += 20;
+    if (segment.multiplier === 3) cost += 4 + (20 - segment.number) * 0.75 + (segment.number < 10 ? 22 : 0);
+    if (segment.id === 'SB' || segment.id === 'DB') cost += 10;
+    cost += (60 - segment.score) * (route.length - index) * 0.005;
+  }
+  return cost;
+}
+
+function findRoutes(score, darts) {
+  const routes = [];
+  function visit(left, prefix) {
+    const double = doubleByScore.get(left);
+    if (double) routes.push([...prefix, double]);
+    if (prefix.length + 1 >= darts) return;
+    for (const segment of scoringSegments) {
+      const next = left - segment.score;
+      if (next >= 2 && next <= (darts - prefix.length - 2) * 60 + 50) visit(next, [...prefix, segment]);
+    }
+  }
+  visit(score, []);
+  routes.sort((a, b) => routeCost(a) - routeCost(b) || a.map(x => x.id).join().localeCompare(b.map(x => x.id).join()));
+  const familiarIndex = routes.findIndex(route => route.map(x => x.id).join(' ') === familiarRoutes[score]);
+  if (familiarIndex > 0 && routes[familiarIndex].length === routes[0].length) routes.unshift(...routes.splice(familiarIndex, 1));
+  return routes;
+}
+
+function setupRoute(score, darts) {
+  // Leave a useful double when possible; otherwise score heavily toward a
+  // finish next visit. Avoid intentionally leaving 1 or ending on a non-double.
+  const preferredLeaves = [40, 32, 36, 24, 20, 16, 12, 8, 4, 2, 50, 60, 80, 100, 120, 140, 160, 170];
+  const candidates = [];
+  const options = scoringSegments.filter(x => x.multiplier !== 2 && x.id !== 'DB');
+  function visit(left, route) {
+    if (route.length) {
+      const leaveIndex = preferredLeaves.indexOf(left);
+      const cost = leaveIndex >= 0 ? leaveIndex * 2 : left > 170 ? 300 + left : 100 + left;
+      const orderCost = route.reduce((sum, id, index) => sum + (60 - byId.get(id).score) * (darts - index) * 0.0001, 0);
+      candidates.push({route, remaining: left, cost: cost + orderCost});
+    }
+    if (route.length === darts) return;
+    for (const segment of options) if (left - segment.score >= 2) visit(left - segment.score, [...route, segment.id]);
+  }
+  // A full three-dart setup is useful for bogey numbers; for high scores all
+  // treble-20 scoring is the straightforward recommendation.
+  if (score > 230) {
+    const route = Array.from({length: darts}, () => 'T20');
+    return {target: route[0], route, remaining: score - darts * 60};
+  }
+  visit(score, []);
+  candidates.sort((a, b) => a.cost - b.cost || b.route.length - a.route.length);
+  const result = candidates[0];
+  return result ? {target: result.route[0], route: result.route, remaining: result.remaining} : null;
+}
+
+/** Suggest valid routes; these are options, not a claim of a unique best route.
+ * The bull (DB, 50) counts as a double. */
+function getCheckout(score, darts = 3) {
+  if (!Number.isInteger(score) || score < 2 || !Number.isInteger(darts) || darts < 1 || darts > 3) {
+    return {finishable: false, route: [], alternatives: [], setup: null, message: 'Enter a whole score of 2 or more and 1–3 darts.'};
+  }
+  const routes = score <= 170 ? findRoutes(score, darts) : [];
+  if (routes.length) {
+    const route = routes[0].map(x => x.id);
+    return {finishable: true, route, alternatives: routes.slice(1, 4).map(route => route.map(x => x.id)), setup: null, message: `Finish in ${route.length} dart${route.length === 1 ? '' : 's'}. End on a double.`};
+  }
+  const setup = setupRoute(score, darts);
+  return {finishable: false, route: [], alternatives: [], setup, message: `No double-out finish with ${darts} dart${darts === 1 ? '' : 's'}. ${setup ? `Set up ${setup.remaining} for the next visit.` : 'Aim to leave a double.'}`};
+}
+
+/** Throw records: {segment:'T20', target:'T20', at?:ISO}. Missing/invalid
+ * targets are excluded from hit-rate denominators, not treated as misses. */
+function sessionStats(records = []) {
+  const rows = records.map(record => ({...record, actual: parseSegment(record.segment ?? record.hit ?? record), aim: parseSegment(record.target)})).filter(row => row.actual);
+  const attempts = rows.filter(row => row.aim).length;
+  const hits = rows.filter(row => row.aim && row.actual.id === row.aim.id).length;
+  const score = rows.reduce((sum, row) => sum + row.actual.score, 0);
+  const targetBreakdown = {};
+  for (const row of rows) {
+    if (!row.aim) continue;
+    const target = targetBreakdown[row.aim.id] ||= {attempts: 0, hits: 0, hitRate: 0};
+    target.attempts++;
+    if (row.actual.id === row.aim.id) target.hits++;
+    target.hitRate = target.hits / target.attempts * 100;
+  }
+  const visits = [];
+  for (let i = 0; i < rows.length; i += 3) visits.push(rows.slice(i, i + 3).reduce((sum, row) => sum + row.actual.score, 0));
+  return {throws: rows.length, hits, attempts, hitRate: attempts ? hits / attempts * 100 : null, score, threeDartAverage: rows.length ? score / rows.length * 3 : 0, bestVisit: visits.length ? Math.max(...visits) : 0, misses: rows.filter(row => row.actual.id === 'MISS').length, targetBreakdown};
+}
+
+/** Session-aware statistics. In x01 a bust cancels the whole visit and its
+ * unused darts count toward the conventional three-dart average. `throws`
+ * remains the actual logged count; `averageDarts` is the average denominator. */
+function trainingStats(session) {
+  const records = Array.isArray(session.throws) ? session.throws : [];
+  const result = {...sessionStats(records)};
+  result.averageDarts = result.throws;
+  if (session.mode !== 'x01') return result;
+  const initial = session.initial ?? 501;
+  result.score = initial - (session.remaining ?? initial);
+  let visitPosition = 0, visitTotal = 0, bestVisit = 0, averageDarts = 0;
+  for (const record of records) {
+    const segment = parseSegment(record.segment);
+    if (!segment) continue;
+    visitPosition++;
+    averageDarts++;
+    visitTotal += segment.score;
+    if (record.bust) {
+      averageDarts += 3 - visitPosition;
+      visitTotal = 0;
+    }
+    if (record.bust || record.visitEnd || visitPosition === 3) {
+      bestVisit = Math.max(bestVisit, visitTotal);
+      visitPosition = 0;
+      visitTotal = 0;
+    }
+  }
+  result.averageDarts = averageDarts;
+  result.threeDartAverage = averageDarts ? result.score / averageDarts * 3 : 0;
+  result.bestVisit = Math.max(bestVisit, visitTotal);
+  return result;
+}
+
+function aggregateSessions(sessions = []) {
+  return sessionStats(sessions.flatMap(session => Array.isArray(session.throws) ? session.throws : Array.isArray(session.records) ? session.records : []));
+}
+
+return {SEGMENTS,parseSegment,applyThrow,getCheckout,sessionStats,trainingStats,aggregateSessions};
+})();
+
+__modules["./coach.js"] = (() => {
+const __moduleUrl = new URL("./dist/coach.js", import.meta.url);
+const cameraIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="4"/></svg>`;
+const uploadIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 16V3m-5 5 5-5 5 5M4 15v6h16v-6"/></svg>`;
+const playIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="m9 5 11 7-11 7z"/></svg>`;
+const pauseIcon = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM14 5h4v14h-4z"/></svg>`;
+const names = ['shoulder', 'elbow', 'wrist'];
+const formatTime = n => Number.isFinite(n) ? `${Math.floor(n / 60)}:${String(Math.floor(n % 60)).padStart(2, '0')}` : '0:00';
+const angleOf = points => {
+  if (points.length !== 3) return null;
+  const [a,b,c] = points.map(p=>({x:p.px??p.x,y:p.py??p.y})), ab = {x:a.x-b.x,y:a.y-b.y}, cb = {x:c.x-b.x,y:c.y-b.y};
+  const den = Math.hypot(ab.x,ab.y)*Math.hypot(cb.x,cb.y);
+  return den > 0 ? Math.round(Math.acos(Math.max(-1,Math.min(1,(ab.x*cb.x+ab.y*cb.y)/den)))*180/Math.PI) : null;
+};
+
+/** Browser-local form review with optional general-purpose pose estimation. */
+function mountCoach(container) {
+  let stopped = false, stream = null, raf = null, playing = false, detector = null, detectorPromise = null, detecting = false, cameraPending = false, cameraGeneration = 0;
+  const urls = new Set();
+  const cleanupListeners = [];
+  const state = {
+    you: {name:'Your throw', marks:[], mode:'empty', ready:false, naturalW:0, naturalH:0, revision:0},
+    pro: {name:'Reference throw', marks:[], mode:'empty', ready:false, naturalW:0, naturalH:0, revision:0}
+  };
+  container.innerHTML = `
+  <style>
+  .coach-root [hidden]{display:none!important}.coach-root{--cc:#ed6845;--ci:#1f2927;--cm:#747c76;--cl:#dce7c1;color:var(--ci);font-size:14px}
+  .coach-intro{display:flex;justify-content:space-between;gap:24px;margin-bottom:24px;align-items:center}.coach-intro h2{font-size:26px;letter-spacing:-.9px;margin:0 0 8px;font-weight:600}.coach-intro p{color:var(--cm);line-height:1.7;margin:0;max-width:640px}.coach-badge{border:1px solid #dedfd7;border-radius:30px;padding:9px 13px;white-space:nowrap;font-size:11px;letter-spacing:1px;text-transform:uppercase;display:flex;align-items:center;gap:7px}.coach-badge i{width:6px;height:6px;background:var(--cc);border-radius:100%}
+  .coach-sessions{display:grid;grid-template-columns:1fr 1fr;gap:20px}.coach-panel{border:1px solid #e4e5dd;border-radius:18px;background:white;overflow:hidden}.coach-panelhead{display:flex;align-items:center;justify-content:space-between;padding:17px 19px;font-size:13px}.coach-panelhead strong{display:flex;align-items:center;gap:9px;font-weight:600}.coach-dot{background:var(--cc);height:7px;width:7px;border-radius:100%}.coach-pro .coach-dot{background:#8b9d64}.coach-source{font-size:10px;text-transform:uppercase;letter-spacing:.9px;color:var(--cm)}
+  .coach-stage{height:270px;position:relative;background:#e9ece6;overflow:hidden;touch-action:manipulation}.coach-stage video,.coach-stage img{width:100%;height:100%;display:block;object-fit:contain;position:absolute;inset:0}.coach-stage img[hidden]{display:none}.coach-stage video[hidden]{display:none}.coach-stage.marking{cursor:crosshair}.coach-empty{height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:25px;box-sizing:border-box;background:linear-gradient(130deg,#eaede7,#dfe4da)}.coach-empty svg{width:37px;height:37px;color:#8a9688;margin-bottom:15px}.coach-empty strong{font-size:16px;letter-spacing:-.3px;font-weight:500;margin-bottom:7px}.coach-empty span{font-size:12px;color:#7d887c;line-height:1.6;max-width:220px}.coach-overlay{position:absolute;inset:0;pointer-events:none;width:100%;height:100%;overflow:visible}.coach-guide{position:absolute;inset:18px;border:1px solid #fff9;pointer-events:none}.coach-guide:before{content:'';position:absolute;left:50%;top:0;bottom:0;border-left:1px dashed #fff9}.coach-guide:after{content:'';position:absolute;top:50%;left:0;right:0;border-top:1px dashed #fff9}
+  .coach-panelbody{padding:15px 18px 18px}.coach-panelbuttons{display:flex;gap:8px;flex-wrap:wrap}.coach-root button,.coach-file{font:inherit;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid #dddfd6;background:white;color:var(--ci);padding:9px 12px;border-radius:7px;font-size:11px;font-weight:500;line-height:1.2;transition:background .15s}.coach-root button:hover,.coach-file:hover{background:#f4f5ee}.coach-root button:focus-visible,.coach-file:focus-within{outline:2px solid var(--cc);outline-offset:3px}.coach-root button:disabled{opacity:.4;cursor:not-allowed}.coach-root button svg,.coach-file svg{width:14px;height:14px}.coach-root .coach-primary{background:var(--cc);border-color:var(--cc);color:white}.coach-root .coach-primary:hover{background:#dc5938}.coach-file input{position:absolute;clip-path:inset(100%);width:1px;height:1px;overflow:hidden}.coach-timeline{display:flex;align-items:center;gap:9px;margin-top:13px;min-height:20px}.coach-timeline input{width:100%;accent-color:var(--cc);height:3px}.coach-time{font-size:10px;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--cm)}.coach-marker-row{border-top:1px solid #edeee8;margin-top:13px;padding-top:12px;display:flex;align-items:center;gap:8px;justify-content:space-between}.coach-marker-row span{font-size:11px;color:var(--cm)}.coach-root .coach-marker-button{border:0;background:#f3f4ee;padding:6px 9px;font-size:10px}.coach-markhint{font-size:11px;color:var(--cm);line-height:1.6;margin:10px 0 0;min-height:18px}.coach-measure{font-size:12px;font-weight:600;color:var(--ci)}
+  .coach-transport{display:flex;align-items:center;gap:13px;flex-wrap:wrap;margin:20px 0 26px;padding:14px 17px;border:1px solid #e2e4dc;border-radius:12px;background:#fafbf7}.coach-transport select{font:inherit;border:1px solid #dbddd4;border-radius:6px;padding:7px;color:var(--ci);background:white;font-size:11px}.coach-transport label{display:flex;align-items:center;gap:7px;font-size:11px;color:var(--cm)}.coach-transport input[type=checkbox]{accent-color:var(--cc)}.coach-transport .coach-align{margin-left:auto;font-size:11px;color:var(--cm);max-width:280px;line-height:1.5}.coach-status{font-size:12px;line-height:1.6;color:var(--cm);min-height:19px;margin:0 0 19px}.coach-comparison{display:grid;grid-template-columns:1.25fr 1fr;gap:20px}.coach-insight{padding:23px;background:#f0f3e8;border:1px solid #e0e5d6;border-radius:15px}.coach-insight .coach-eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:#657454;display:block;margin-bottom:13px}.coach-insight h3{font-size:18px;letter-spacing:-.4px;margin:0 0 10px;font-weight:500}.coach-insight p{font-size:12px;line-height:1.8;margin:0;color:#65705e}.coach-angles{display:flex;gap:30px;margin-top:17px;padding-top:16px;border-top:1px solid #dce2d2}.coach-angles strong{display:block;font-size:26px;font-weight:500;letter-spacing:-1px}.coach-angles span{font-size:10px;color:#65705e}.coach-steps{padding:21px 24px;border:1px solid #e3e4dc;border-radius:15px;background:white}.coach-steps h3{font-size:14px;margin:0 0 17px;font-weight:500}.coach-step{display:flex;gap:13px;margin-top:13px}.coach-step b{font-size:10px;color:#8b9389;border:1px solid #e2e4da;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:400}.coach-step strong{font-size:11px;font-weight:500;display:block;margin-bottom:3px}.coach-step p{margin:0;font-size:10px;line-height:1.6;color:var(--cm)}.coach-privacy{font-size:10px;line-height:1.8;color:#899185;margin:18px 0 0;display:flex;align-items:flex-start;gap:7px}.coach-privacy svg{width:13px;height:13px;margin-top:2px;flex-shrink:0}
+  @media(max-width:780px){.coach-intro{display:block}.coach-badge{width:max-content;margin-top:15px}.coach-sessions,.coach-comparison{grid-template-columns:1fr}.coach-stage{height:280px}.coach-transport .coach-align{margin-left:0;max-width:none;width:100%}.coach-intro h2{font-size:23px}}
+  </style>
+  <div class="coach-root">
+    <div class="coach-intro"><div><h2>A closer look at your throw.</h2><p>Slow it down, find your rhythm, and compare the moments that matter with a professional reference.</p></div><span class="coach-badge"><i></i> Experimental pose coach</span></div>
+    <div class="coach-sessions">
+      ${panel('you','Your throw','Your training footage','Upload a side-on recording, or use your camera.','Your video')}
+      ${panel('pro','Professional reference','Bring your reference','Add a professional clip you own or have permission to analyze.','Reference clip')}
+    </div>
+    <div class="coach-transport">
+      <button type="button" class="coach-primary" data-play>${playIcon}<span>Play together</span></button>
+      <label>Throwing arm <select data-arm aria-label="Throwing arm"><option value="right">Right</option><option value="left">Left</option></select></label>
+      <label>Speed <select data-speed aria-label="Playback speed"><option value="0.25">0.25×</option><option value="0.5" selected>0.5×</option><option value="1">1×</option></select></label>
+      <label><input type="checkbox" data-guides checked> Alignment guides</label>
+      <span class="coach-align">Align both clips to the same throw phase, then play together.</span>
+    </div>
+    <p class="coach-status" role="status" aria-live="polite">Ready when you are. Start with a side-on view that includes your shoulder, elbow, and hand.</p>
+    <div class="coach-comparison">
+      <div class="coach-insight"><span class="coach-eyebrow">Frame comparison</span><h3 data-comparison-title>Give your technique a reference point.</h3><p data-comparison-copy>Pause each clip at the same point in the throw. Mark shoulder → elbow → wrist in each frame to compare the visible elbow angle.</p><div class="coach-angles"><div><strong data-angle-you>—</strong><span>Your elbow angle</span></div><div><strong data-angle-pro>—</strong><span>Reference angle</span></div><div><strong data-angle-diff>—</strong><span>Difference</span></div></div></div>
+      <div class="coach-steps"><h3>What to look for</h3><div class="coach-step"><b>01</b><div><strong>A steady foundation</strong><p>Watch for head or torso movement as you release.</p></div></div><div class="coach-step"><b>02</b><div><strong>A repeatable throwing path</strong><p>Compare elbow position across several of your throws.</p></div></div><div class="coach-step"><b>03</b><div><strong>A relaxed follow-through</strong><p>Check that your hand continues toward the target.</p></div></div></div>
+    </div>
+    <p class="coach-privacy"><span>Need a professional reference? <a href="https://www.pdc.tv/videos" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline">Browse official PDC videos ↗</a>. Add a local clip you own or have permission to analyze; videos are not downloaded automatically.</span></p>
+    <p class="coach-privacy"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6z"/><path d="m8 12 3 3 5-6"/></svg><span>Your camera and videos stay in this browser. Video and pose analysis run on your device. Experimental pose estimates use Google MediaPipe’s general-purpose 2D model; they are not a darts-trained assessment. Mark points manually if detection is uncertain. Compare matched views and throw phases. Camera access requires your permission.</span></p>
+  </div>`;
+
+  function panel(key,title,emptyTitle,emptyText,fileLabel) {
+    return `<section class="coach-panel coach-${key}" data-panel="${key}"><div class="coach-panelhead"><strong><i class="coach-dot"></i>${title}</strong><span class="coach-source" data-source="${key}">No clip loaded</span></div><div class="coach-stage" data-stage="${key}" aria-label="${title} frame. Mark shoulder, elbow, and wrist after pausing."><div class="coach-empty" data-empty="${key}">${cameraIcon}<strong>${emptyTitle}</strong><span>${emptyText}</span></div><video data-video="${key}" playsinline muted hidden></video><img data-still="${key}" alt="Frozen camera frame" hidden><div class="coach-guide" data-guide="${key}" hidden></div><svg class="coach-overlay" data-overlay="${key}" aria-hidden="true"></svg></div><div class="coach-panelbody"><div class="coach-panelbuttons"><label class="coach-file">${uploadIcon}${fileLabel}<input type="file" accept="video/*" data-upload="${key}" aria-label="Upload ${fileLabel.toLowerCase()}"></label>${key==='you'?`<button type="button" data-camera>${cameraIcon}Start camera</button><button type="button" data-freeze hidden>Freeze frame</button>`:''}<button type="button" data-detect="${key}" disabled>Detect pose</button><button type="button" data-localplay="${key}" disabled>${playIcon}Play</button></div><div class="coach-timeline"><input type="range" data-scrub="${key}" min="0" max="0" step="0.01" value="0" disabled aria-label="${title} timeline"><span class="coach-time" data-time="${key}">0:00 / 0:00</span></div><div class="coach-marker-row"><span data-marker-text="${key}">Mark 3 points to measure</span><button type="button" class="coach-marker-button" data-clear="${key}">Clear points</button></div><p class="coach-markhint" data-hint="${key}">Load a clip to begin.</p></div></section>`;
+  }
+  const $ = selector => container.querySelector(selector);
+  const on = (el,type,fn,options) => {el.addEventListener(type,fn,options);cleanupListeners.push(()=>el.removeEventListener(type,fn,options));};
+  const status = message => {if(!stopped) $('.coach-status').textContent=message;};
+  function stopCamera() {
+    // getUserMedia cannot be cancelled; invalidate its request so late streams are stopped.
+    cameraGeneration++;cameraPending=false;state.you.revision++;
+    if(stream) {stream.getTracks().forEach(track=>track.stop());stream=null;}
+    if(!stopped){
+      const button=$('[data-camera]');button.disabled=false;button.innerHTML=`${cameraIcon}Start camera`;
+      $('[data-freeze]').hidden=true;
+    }
+  }
+  function show(key,mode) {
+    const s=state[key];s.mode=mode;
+    $(`[data-empty="${key}"]`).hidden=mode!=='empty';
+    $(`[data-video="${key}"]`).hidden=!['video','camera'].includes(mode);
+    $(`[data-still="${key}"]`).hidden=mode!=='still';
+    $(`[data-guide="${key}"]`).hidden=mode==='empty'||!$('[data-guides]').checked;
+    $(`[data-stage="${key}"]`).classList.toggle('marking',s.ready&&mode!=='camera');
+    $(`[data-localplay="${key}"]`).disabled=mode!=='video'||!s.ready;
+    $(`[data-detect="${key}"]`).disabled=!s.ready||detecting;
+    $(`[data-scrub="${key}"]`).disabled=mode!=='video'||!s.ready;
+    updateHint(key);
+  }
+  function updateHint(key) {
+    const s=state[key];
+    $(`[data-hint="${key}"]`).textContent=s.mode==='empty'?'Load a clip to begin.':s.mode==='camera'?'Frame your throwing arm, then freeze a frame to mark points.':s.marks.length===3?'Angle marked. Clear points or move to a new frame to measure again.':`Pause at a matching throw phase. Tap your ${names[s.marks.length]}.`;
+    $(`[data-marker-text="${key}"]`).textContent=s.marks.length===3?`${angleOf(s.marks)??'—'}° visible elbow angle`:`${s.marks.length}/3 points marked`;
+  }
+  function renderMarks(key) {
+    const s=state[key],stage=$(`[data-stage="${key}"]`),box=stage.getBoundingClientRect(), svg=$(`[data-overlay="${key}"]`);
+    const fit=getFit(key,box);
+    const points=s.marks.map(p=>({x:fit.x+p.x*fit.width,y:fit.y+p.y*fit.height}));
+    const color=key==='you'?'#f77451':'#c6da97';
+    svg.setAttribute('viewBox',`0 0 ${box.width} ${box.height}`);
+    svg.innerHTML=`${points.length>1?`<polyline points="${points.map(p=>`${p.x},${p.y}`).join(' ')}" fill="none" stroke="${color}" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>`:''}${points.map((p,i)=>`<circle cx="${p.x}" cy="${p.y}" r="6" fill="${color}" stroke="white" stroke-width="2"/><text x="${p.x+10}" y="${p.y-9}" fill="white" stroke="#263126" stroke-width="2.8" paint-order="stroke" font-size="12" font-family="sans-serif" font-weight="600">${names[i][0].toUpperCase()}</text>`).join('')}`;
+    updateHint(key);updateComparison();
+  }
+  function getFit(key,box) {
+    const s=state[key], ratio=s.naturalW/s.naturalH||box.width/box.height;
+    let width=box.width,height=width/ratio;
+    if(height>box.height){height=box.height;width=height*ratio;}
+    return {x:(box.width-width)/2,y:(box.height-height)/2,width,height};
+  }
+  function clearMarks(key){state[key].revision++;state[key].marks=[];renderMarks(key);}
+  function updateComparison() {
+    const you=angleOf(state.you.marks),pro=angleOf(state.pro.marks);
+    $('[data-angle-you]').textContent=you===null?'—':`${you}°`;
+    $('[data-angle-pro]').textContent=pro===null?'—':`${pro}°`;
+    $('[data-angle-diff]').textContent=you===null||pro===null?'—':`${Math.abs(you-pro)}°`;
+    if(you===null||pro===null) {
+      $('[data-comparison-title]').textContent='Give your technique a reference point.';
+      $('[data-comparison-copy]').textContent='Pause each clip at the same point in the throw. Mark shoulder → elbow → wrist in each frame to compare the visible elbow angle.';
+    } else {
+      const diff=Math.abs(you-pro);
+      $('[data-comparison-title]').textContent=`Your marked elbow angles differ by ${diff}°.`;
+      $('[data-comparison-copy]').textContent=diff<=10?'These two frames have a similar visible elbow angle. Check several throws for consistency, keeping camera position and throw phase matched. A similar angle alone does not establish correct form.':'Check that camera angle and throw phase match before interpreting this difference. Review your elbow path across several throws; one professional’s angle is a reference, not a universal target.';
+    }
+  }
+  function updateTransport(){
+    if(stopped)return;
+    playing=Object.keys(state).some(key=>state[key].mode==='video'&&!$(`[data-video="${key}"]`).paused);
+    $('[data-play]').innerHTML=`${playing?pauseIcon:playIcon}<span>${playing?'Pause both':'Play together'}</span>`;
+    for(const key of Object.keys(state)){
+      const v=$(`[data-video="${key}"]`);
+      $(`[data-localplay="${key}"]`).innerHTML=`${!v.paused?pauseIcon:playIcon}${!v.paused?'Pause':'Play'}`;
+    }
+  }
+  async function playVideo(key) {
+    const s=state[key],v=$(`[data-video="${key}"]`);
+    if(s.mode!=='video'||!s.ready)return false;
+    clearMarks(key);v.playbackRate=Number($('[data-speed]').value);
+    if(v.ended)v.currentTime=0;
+    try{await v.play();return true;}catch{status('This clip could not play. Try an MP4 or WebM supported by your browser.');return false;}
+  }
+  for(const key of Object.keys(state)) {
+    const s=state[key],v=$(`[data-video="${key}"]`),upload=$(`[data-upload="${key}"]`),scrub=$(`[data-scrub="${key}"]`);
+    on(upload,'change',()=>{
+      const file=upload.files?.[0];if(!file)return;
+      if(!file.type.startsWith('video/')){status('Choose a video file such as MP4, MOV, or WebM.');return;}
+      if(key==='you')stopCamera();
+      v.pause();v.srcObject=null;
+      if(s.url){URL.revokeObjectURL(s.url);urls.delete(s.url);}
+      s.url=URL.createObjectURL(file);urls.add(s.url);s.ready=false;clearMarks(key);
+      v.src=s.url;v.load();show(key,'video');
+      $(`[data-source="${key}"]`).textContent=file.name.length>25?file.name.slice(0,22)+'…':file.name;
+      status(`Loading ${key==='you'?'your':'reference'} clip locally…`);
+    });
+    on(v,'loadedmetadata',()=>{
+      s.revision++;s.naturalW=v.videoWidth;s.naturalH=v.videoHeight;s.ready=true;
+      if(Number.isFinite(v.duration))scrub.max=v.duration;
+      v.playbackRate=Number($('[data-speed]').value);show(key,s.mode);renderMarks(key);
+      if(s.mode==='video')status(`${key==='you'?'Your clip':'Reference clip'} is ready. Scrub to a frame, then mark shoulder, elbow, and wrist.`);
+    });
+    on(v,'error',()=>{if(s.mode==='video'){s.revision++;s.ready=false;show(key,s.mode);status('This browser cannot read that clip. Try a locally saved MP4 (H.264) or WebM video.');}});
+    on(v,'play',()=>{clearMarks(key);updateTransport();});on(v,'pause',updateTransport);on(v,'ended',updateTransport);
+    on(v,'seeking',()=>clearMarks(key));on(v,'seeked',()=>clearMarks(key));
+    on(scrub,'input',()=>{v.pause();v.currentTime=Number(scrub.value);clearMarks(key);updateTransport();});
+    on($(`[data-localplay="${key}"]`),'click',async()=>{if(v.paused)await playVideo(key);else v.pause();updateTransport();});
+    on($(`[data-clear="${key}"]`),'click',()=>clearMarks(key));
+    on($(`[data-stage="${key}"]`),'click',event=>{
+      if(!s.ready||v.seeking)return;
+      if(s.mode==='camera'){status('Freeze a camera frame before marking points.');return;}
+      if(s.mode==='video'&&!v.paused){v.pause();status('Clip paused. Mark shoulder, elbow, and wrist in order.');}
+      if(s.marks.length===3){status('Clear the existing points before marking this frame again.');return;}
+      const box=event.currentTarget.getBoundingClientRect(),fit=getFit(key,box);
+      const x=(event.clientX-box.left-fit.x)/fit.width,y=(event.clientY-box.top-fit.y)/fit.height;
+      if(x<0||x>1||y<0||y>1)return;
+      s.revision++;s.marks.push({x,y,px:x*s.naturalW,py:y*s.naturalH});
+      renderMarks(key);
+    });
+  }
+  async function getDetector() {
+    if (detector) return detector;
+    if (!detectorPromise) detectorPromise = (async () => {
+      const {FilesetResolver, PoseLandmarker} = await import(new URL("./assets/vision_bundle.mjs", __moduleUrl).href);
+      if(stopped)throw new Error('Review closed.');
+      const files = await FilesetResolver.forVisionTasks(new URL('./assets/wasm', __moduleUrl).href);
+      if(stopped)throw new Error('Review closed.');
+      const instance = await PoseLandmarker.createFromOptions(files, {
+        baseOptions: {modelAssetPath:new URL('./assets/pose_landmarker_lite.task', __moduleUrl).href,delegate:'CPU'},
+        runningMode:'IMAGE',numPoses:1
+      });
+      if(stopped){instance.close();throw new Error('Review closed.');}
+      detector = instance;return instance;
+    })().catch(error=>{detectorPromise=null;throw error;});
+    return detectorPromise;
+  }
+  function frameCanvas(key) {
+    const s=state[key],canvas=document.createElement('canvas');
+    canvas.width=s.naturalW;canvas.height=s.naturalH;
+    canvas.getContext('2d').drawImage(s.mode==='still'?$(`[data-still="${key}"]`):$(`[data-video="${key}"]`),0,0);
+    return canvas;
+  }
+  async function detectPose(key) {
+    const s=state[key],v=$(`[data-video="${key}"]`);
+    if(stopped||detecting||!s.ready)return;
+    if(v.seeking){status('Wait for the selected frame to load before detecting pose.');return;}
+    detecting=true;
+    for(const k of Object.keys(state))$(`[data-detect="${k}"]`).disabled=true;
+    const button=$(`[data-detect="${key}"]`);button.textContent='Analyzing…';
+    let snapshot=null;
+    const isCurrent=()=>!stopped&&snapshot&&s.ready&&s.revision===snapshot.revision&&$('[data-arm]').value===snapshot.arm;
+    try {
+      v.pause();
+      const canvas=frameCanvas(key);
+      if(s.mode==='camera'){
+        $(`[data-still="${key}"]`).src=canvas.toDataURL('image/jpeg',.92);v.srcObject=null;stopCamera();show(key,'still');$(`[data-source="${key}"]`).textContent='Captured frame';
+      }
+      clearMarks(key);
+      snapshot={revision:s.revision,width:canvas.width,height:canvas.height,arm:$('[data-arm]').value};
+      status(detector?'Estimating pose locally…':'Loading the pose model for on-device analysis. The first run can take a moment…');
+      const model=await getDetector();
+      // An upload, seek, playback, arm change, manual edit, or unmount invalidates this frame.
+      if(!isCurrent())return;
+      const result=model.detect(canvas),landmarks=result.landmarks?.[0];
+      const indices=snapshot.arm==='right'?[12,14,16]:[11,13,15];
+      const selected=indices.map(index=>landmarks?.[index]);
+      if(selected.some(point=>!point||(point.visibility??0)<.6||point.x<0||point.x>1||point.y<0||point.y>1)){
+        clearMarks(key);status('The throwing arm was not visible with enough confidence. Use a clearer side-on frame, check your selected arm, or mark the three points manually.');return;
+      }
+      s.marks=selected.map(point=>({x:point.x,y:point.y,px:point.x*snapshot.width,py:point.y*snapshot.height}));
+      renderMarks(key);
+      status('Pose estimated on your device. Check the shoulder, elbow, and wrist points before comparing. These are 2D estimates, not a validated darts assessment.');
+    } catch(error) {
+      if(!stopped&&(!snapshot||isCurrent()))status('The pose model could not analyze this frame. You can still mark shoulder, elbow, and wrist manually.');
+    } finally {
+      detecting=false;if(!stopped){button.textContent='Detect pose';for(const k of Object.keys(state))show(k,state[k].mode);}
+    }
+  }
+  for(const key of Object.keys(state))on($(`[data-detect="${key}"]`),'click',()=>detectPose(key));
+  on($('[data-arm]'),'change',()=>{for(const key of Object.keys(state))clearMarks(key);status('Throwing arm changed. Detect pose again or mark the selected arm.');});
+  on($('[data-camera]'),'click',async()=>{
+    const v=$('[data-video="you"]'),s=state.you;
+    if(stopped||cameraPending)return;
+    if(stream){stopCamera();v.pause();v.srcObject=null;s.ready=false;clearMarks('you');show('you','empty');$('[data-source="you"]').textContent='Camera stopped';status('Camera stopped.');return;}
+    if(!navigator.mediaDevices?.getUserMedia){status('Camera is unavailable in this browser. Upload a video to review your throw.');return;}
+    const request=++cameraGeneration;
+    cameraPending=true;
+    const button=$('[data-camera]');button.disabled=true;button.innerHTML=`${cameraIcon}Requesting camera…`;
+    let acquiredStream=null;
+    try{
+      v.pause();v.srcObject=null;s.ready=false;clearMarks('you');show('you','empty');
+      status('Waiting for camera permission. You can also upload a recording.');
+      acquiredStream=await navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280},height:{ideal:720}},audio:false});
+      if(stopped||request!==cameraGeneration){acquiredStream.getTracks().forEach(t=>t.stop());return;}
+      stream=acquiredStream;
+      v.removeAttribute('src');v.srcObject=stream;show('you','camera');await v.play();
+      if(stopped||request!==cameraGeneration){acquiredStream.getTracks().forEach(t=>t.stop());return;}
+      cameraPending=false;button.disabled=false;button.innerHTML=`${cameraIcon}Stop camera`;$('[data-freeze]').hidden=false;$('[data-source="you"]').textContent='Live camera';
+      status('Camera is live. Stand side-on with your throwing arm visible, then freeze a frame.');
+    }catch(error){
+      if(acquiredStream)acquiredStream.getTracks().forEach(t=>t.stop());
+      if(stopped||request!==cameraGeneration)return;
+      stopCamera();v.srcObject=null;s.ready=false;clearMarks('you');show('you','empty');status(error.name==='NotAllowedError'?'Camera access was not granted. You can still upload a recording.':error.name==='NotFoundError'?'No camera was found. Upload a recording to continue.':'Camera could not start. Upload a recording or check browser camera settings.');
+    }
+  });
+  on($('[data-freeze]'),'click',()=>{
+    const s=state.you,v=$('[data-video="you"]');if(!s.ready||!v.videoWidth)return;
+    const canvas=document.createElement('canvas');canvas.width=v.videoWidth;canvas.height=v.videoHeight;canvas.getContext('2d').drawImage(v,0,0);
+    $('[data-still="you"]').src=canvas.toDataURL('image/jpeg',.92);v.pause();v.srcObject=null;stopCamera();clearMarks('you');show('you','still');$('[data-source="you"]').textContent='Captured frame';status('Frame captured and camera stopped. Mark shoulder, elbow, and wrist.');
+  });
+  on($('[data-play]'),'click',async()=>{
+    const available=Object.keys(state).filter(key=>state[key].mode==='video'&&state[key].ready);
+    if(!available.length){status('Upload a clip first. Camera snapshots can be marked but do not play.');return;}
+    if(playing)available.forEach(key=>$(`[data-video="${key}"]`).pause());
+    else await Promise.all(available.map(playVideo));updateTransport();
+  });
+  on($('[data-speed]'),'change',()=>{for(const key of Object.keys(state))$(`[data-video="${key}"]`).playbackRate=Number($('[data-speed]').value);});
+  on($('[data-guides]'),'change',()=>{for(const key of Object.keys(state))show(key,state[key].mode);});
+  on(window,'resize',()=>{for(const key of Object.keys(state))renderMarks(key);});
+  function tick(){
+    if(stopped)return;
+    for(const key of Object.keys(state)){
+      const v=$(`[data-video="${key}"]`),s=state[key];if(s.mode!=='video')continue;
+      $(`[data-scrub="${key}"]`).value=v.currentTime;
+      $(`[data-time="${key}"]`).textContent=`${formatTime(v.currentTime)} / ${formatTime(v.duration)}`;
+    }
+    raf=requestAnimationFrame(tick);
+  }
+  tick();
+  return ()=>{
+    stopped=true;stopCamera();for(const key of Object.keys(state))state[key].revision++;cancelAnimationFrame(raf);cleanupListeners.forEach(fn=>fn());
+    for(const key of Object.keys(state)){$(`[data-video="${key}"]`).pause();$(`[data-video="${key}"]`).srcObject=null;$(`[data-video="${key}"]`).removeAttribute('src');}
+    urls.forEach(url=>URL.revokeObjectURL(url));if(detector){detector.close();detector=null;}
+  };
+}
+
+return {mountCoach};
+})();
+
+__modules["./app.js"] = (() => {
+const __moduleUrl = new URL("./dist/app.js", import.meta.url);
+const {SEGMENTS, parseSegment, applyThrow, getCheckout, trainingStats:stats} = __modules["./engine.js"];
+const {mountCoach} = __modules["./coach.js"];
+const paths = {
+ grid:'<rect x="3" y="3" width="7" height="7" rx="1.4"/><rect x="14" y="3" width="7" height="7" rx="1.4"/><rect x="3" y="14" width="7" height="7" rx="1.4"/><rect x="14" y="14" width="7" height="7" rx="1.4"/>',
+ target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+ camera:'<path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="4"/>',
+ route:'<circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7a3 3 0 0 1 0 6H9a3 3 0 0 0 0 6h7"/>',
+ history:'<path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-5v6l4 2"/>',
+ settings:'<path d="m9 3-1 3-3 1-2 4 2 2v4l4 3 3-1 3 1 4-3v-4l2-2-2-4-3-1-1-3z"/><circle cx="12" cy="12" r="3"/>',
+ bulb:'<path d="M9 18h6m-6 3h6M8 15a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3z"/>',
+ calendar:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4m10-4v4M3 11h18"/>',
+ arrow:'<path d="M4 12h15m-5-5 5 5-5 5"/>',
+ chart:'<path d="M4 20V4m0 16h17M8 14l4-5 4 3 5-7"/>',
+ clock:'<circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/>',
+ flame:'<path d="M12 3c2 5-2 6 0 9 1-1 3-2 3-5 7 6 5 14-3 14-7 0-9-7-5-12 0 4 2 4 2 4-1-5 3-6 3-10z"/>',
+ download:'<path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/>',
+ plus:'<path d="M12 5v14M5 12h14"/>',
+ check:'<path d="m5 12 4 4L19 6"/>',
+ close:'<path d="m6 6 12 12M18 6 6 18"/>',
+ undo:'<path d="M3 10h10a6 6 0 0 1 0 12M3 10l6-6m-6 6 6 6"/>',
+ help:'<circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 1 1 4 3c-1 0-1 1-1 3m0 2h.01"/>',
+ shield:'<path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6z"/><path d="m8 12 3 3 5-6"/>'
+};
+const icon = (name, cls='')=>`<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]||paths.target}</svg>`;
+const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+const escapeHtml = value=>String(value??'').replace(/[&<>"']/g,x=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[x]));
+const KEY='dartboard.training.v1';
+let data;
+try{data=JSON.parse(localStorage.getItem(KEY)||'null');}catch{}
+if(!data||!Array.isArray(data.sessions))data={sessions:[],profile:{name:'',hand:'right'},active:null};
+data.profile ||= {name:'',hand:'right'};
+let view='overview', multiplier='S', cleanupCoach=null, chartRange=7, checkoutScore=121, checkoutDarts=3;
+const persist=()=>{try{localStorage.setItem(KEY,JSON.stringify(data));}catch{toast('Storage is unavailable. Export your sessions before closing.');}};
+let toastTimer;
+function toast(message){$('#toast').textContent=message;$('#toast').classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>$('#toast').classList.remove('visible'),3800);}
+const fmt=n=>Number(n||0).toLocaleString(undefined,{maximumFractionDigits:1,minimumFractionDigits:1});
+const duration=s=>{const mins=Math.round((s.duration||0)/60);return mins>=60?`${Math.floor(mins/60)}h ${mins%60}m`:`${Math.max(1,mins)} min`;};
+const dateText=d=>new Date(d).toLocaleDateString(undefined,{month:'short',day:'numeric'});
+const dateFull=d=>new Date(d).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'});
+const today=d=>new Date(d).toDateString()===new Date().toDateString();
+const labels={overview:'Overview',practice:'Practice',coach:'Form coach',checkout:'Checkout lab',sessions:'My sessions'};
+const navIcons={overview:'grid',practice:'target',coach:'camera',checkout:'route',sessions:'history'};
+$$('[data-nav]').forEach(a=>{const k=a.dataset.nav;a.innerHTML=icon(navIcons[k])+labels[k]+(k==='coach'?'<span class="nav-tag">BETA</span>':'');});
+$('#settings-btn').innerHTML=icon('settings')+'Settings';$('#tip-icon').innerHTML=icon('bulb');$('#help-btn').innerHTML=icon('help');
+function updateProfile(){const name=data.profile.name;$('#profile-name').textContent=name||'Your practice';$('.profile .avatar').textContent=$('#header-avatar').textContent=(name||'Y').slice(0,1).toUpperCase();}
+updateProfile();
+
+function sampleSessions(){return Array.from({length:8},(_,i)=>{const dt=new Date();dt.setDate(dt.getDate()-(7-i));dt.setHours(17,30,0,0);const target=i%3===1?'D16':'T20';const pool=target==='D16'?['S16','D16','S8','D16','S16','MISS','D16','S7','D8']:['S20','T20','S1','S20','S5','T20','S20','T5','MISS'];const throws=Array.from({length:30},(_,j)=>({segment:pool[(j*7+i*2)%pool.length],target,at:dt.toISOString()}));return {id:`sample-${i}`,mode:'accuracy',name:target==='D16'?'Double 16 focus':'Treble 20 practice',target,throws,startedAt:dt.toISOString(),duration:480+i*33,sample:true};}).reverse();}
+const isDemo=()=>data.sessions.length===0;
+const displayedSessions=()=>isDemo()?sampleSessions():data.sessions;
+function overall(sessions){const rows=sessions.map(stats);const throws=rows.reduce((n,s)=>n+s.throws,0),score=rows.reduce((n,s)=>n+s.score,0),averageDarts=rows.reduce((n,s)=>n+s.averageDarts,0),hits=rows.reduce((n,s)=>n+s.hits,0),attempts=rows.reduce((n,s)=>n+s.attempts,0);return {throws,score,hits,hitRate:attempts?hits/attempts*100:0,threeDartAverage:averageDarts?score/averageDarts*3:0,bestVisit:Math.max(0,...rows.map(s=>s.bestVisit))};}
+
+function dartboard(interactive=false,hero=false){
+ const nums=[20,1,18,4,13,6,10,15,2,17,3,19,7,16,8,11,14,9,12,5];
+ const p=(r,a)=>[210+r*Math.cos(a*Math.PI/180),210+r*Math.sin(a*Math.PI/180)];
+ const wedge=(r1,r2,a,b)=>{const a1=p(r1,a),b1=p(r1,b),a2=p(r2,a),b2=p(r2,b);return `M${a1.join(',')} A${r1} ${r1} 0 0 1 ${b1.join(',')} L${b2.join(',')} A${r2} ${r2} 0 0 0 ${a2.join(',')} Z`;};
+ const attr=id=>interactive?`data-segment="${id}" role="button" tabindex="0" aria-label="Log ${escapeHtml(parseSegment(id).label)}"`:'';
+ let svg=`<svg class="dartboard-svg ${interactive?'interactive-board':''}" viewBox="0 0 420 420" role="group" aria-label="${interactive?'Interactive dartboard. Select the segment your dart hit.':'Illustration of a dartboard'}"><circle cx="210" cy="210" r="202" fill="#c4c6c1"/><circle cx="210" cy="210" r="198" fill="#27313a"/><circle cx="210" cy="210" r="171" fill="#b7bbb3"/>`;
+ nums.forEach((n,i)=>{let a=-99+i*18,b=a+18;[[168,156,i%2?'#769886':'#ce775f','D'],[156,106,i%2?'#e7dfce':'#303b41','S'],[106,96,i%2?'#769886':'#ce775f','T'],[96,17,i%2?'#e7dfce':'#303b41','S']].forEach(([r1,r2,color,m])=>{svg+=`<path d="${wedge(r1,r2,a,b)}" fill="${color}" stroke="#b9beb4" stroke-width="1" ${attr(m+n)}><title>${m==='S'?'Single':m==='T'?'Treble':'Double'} ${n}</title></path>`;});const np=p(183,a+9);svg+=`<text x="${np[0]}" y="${np[1]+4}" text-anchor="middle" fill="#d7dbd5" font-size="16" font-family="Arial,sans-serif" font-weight="400" aria-hidden="true">${n}</text>`;});
+ svg+=`<circle cx="210" cy="210" r="17" fill="#6e9683" stroke="#b9beb4" ${attr('SB')}/><circle cx="210" cy="210" r="7" fill="#cf755d" stroke="#b9beb4" ${attr('DB')}/>`;
+ if(hero){[[210,109,1],[202,113,.94],[218,119,.9]].forEach(([x,y,scale])=>{svg+=`<g transform="translate(${x} ${y}) rotate(-35) scale(${scale})"><path d="M0 0 37-43" stroke="#adb8b7" stroke-width="2"/><path d="M35-41 70-82" stroke="#a4aaa4" stroke-width="5"/><path d="M39-45 66-77" stroke="#e3e6dd" stroke-width="2" stroke-dasharray="2 2"/><path d="m68-80 21-25 1 20-20 17z" fill="#e4ddd0"/><path d="m69-79 3-27 17 1z" fill="#faf5ec"/><path d="m68-80 4-26-10 12z" fill="#cf7c60"/></g>`;});}
+ return svg+'</svg>';
+}
+function heading(title,desc,action=''){return `<div class="page-heading"><div><p class="eyebrow">A LITTLE BETTER, EVERY THROW</p><h1>${title}</h1><p>${desc}</p></div>${action||`<span class="date-label">${icon('calendar')}${new Date().toLocaleDateString(undefined,{weekday:'short',day:'numeric',month:'long'})}</span>`}</div>`;}
+function sessionRows(rows){return rows.map(s=>{const st=stats(s);return `<tr data-session="${s.id}" tabindex="0" role="button" aria-label="View ${escapeHtml(s.name)}"><td><span class="session-name">${icon(s.mode==='x01'?'route':'target')}${escapeHtml(s.name)}</span></td><td>${dateText(s.startedAt)}</td><td><span class="type-badge ${s.mode==='x01'?'peach':''}">${s.mode==='x01'?'Double-out':'Accuracy'}</span></td><td>${st.throws} darts</td><td>${duration(s)}</td><td>${fmt(st.threeDartAverage)}</td><td class="table-arrow">›</td></tr>`;}).join('');}
+function table(rows){return `<table class="session-table"><thead><tr><th>Session</th><th>Date</th><th>Training type</th><th>Darts thrown</th><th>Duration</th><th>3-dart avg.</th><th></th></tr></thead><tbody>${sessionRows(rows)}</tbody></table>`;}
+function bindRows(){ $$('[data-session]').forEach(row=>{const open=()=>showSession(row.dataset.session);row.addEventListener('click',open);row.addEventListener('keydown',e=>{if(e.key==='Enter')open();});});}
+
+function renderOverview(){const sessions=displayedSessions(),o=overall(sessions),demo=isDemo(),realToday=data.sessions.filter(s=>today(s.startedAt)).reduce((n,s)=>n+s.throws.length,0),goal=60,progress=demo?42:realToday,minutes=Math.round(sessions.reduce((n,s)=>n+s.duration,0)/60);
+ $('#main').innerHTML=`<section>${heading(`Let’s make every dart count${data.profile.name?', '+escapeHtml(data.profile.name):''}.`,'Your progress, your practice, your next personal best.')}
+ <div class="hero-grid"><div class="hero"><div class="hero-copy"><p class="eyebrow">PRACTICE WITH PURPOSE</p><h2>Build a more<br><span>consistent throw.</span></h2><p>Find your rhythm. Refine your aim.<br>Turn small improvements into big finishes.</p><button class="primary-button" id="hero-start">Start a practice ${icon('arrow')}</button></div><div class="hero-art" aria-hidden="true">${dartboard(false,true)}<span class="hero-spark">✧</span><div class="hero-score"><span class="score-icon">✓</span><span><strong>One dart at a time.</strong><small>That’s how progress happens.</small></span></div></div></div>
+ <div class="daily-card"><div class="daily-top"><span>YOUR DAILY GOAL</span>${icon('flame')}</div><h3>Small sessions.<br>Serious progress.</h3><div class="daily-progress"><strong>${progress}</strong><span>/ ${goal} darts</span></div><div class="progress-track"><span style="width:${Math.min(100,progress/goal*100)}%"></span></div><div class="daily-bottom"><span>${Math.min(100,Math.round(progress/goal*100))}% complete</span><span>${demo?'Sample goal':progress>=goal?'Goal reached!':'You’ve got this.'}</span></div><span class="leaf-mark" aria-hidden="true">❧</span></div></div>
+ <div class="section-heading"><h2>Your game at a glance</h2><span class="sample-pill"><i></i>${demo?'SAMPLE TRAINING DATA':'YOUR SAVED SESSIONS'}</span></div>
+ <div class="stats-grid">${statCard('3-dart average',fmt(o.threeDartAverage),'chart','Points per three darts','avg')}${statCard('Target hit rate',fmt(o.hitRate)+'<small>%</small>','target','Exact target hits / attempts','hit')}${statCard('Practice sessions',sessions.length,'history',`${o.throws} darts logged`,'sessions')}${statCard('Time at the oche',Math.floor(minutes/60)+'<small>h</small> '+minutes%60+'<small>m</small>','clock','Time spent building your game','time')}</div>
+ <div class="dashboard-lower"><div class="panel"><div class="panel-head"><div><h2 class="panel-title">A little better, session by session</h2><p class="panel-subtitle">Your scoring average and target accuracy</p></div><select class="small-select" id="chart-range" aria-label="Progress chart range"><option value="7" ${chartRange===7?'selected':''}>Last 7 sessions</option><option value="30" ${chartRange===30?'selected':''}>Last 30 sessions</option></select></div><div class="chart-legend"><span><i></i>3-dart average</span><span><i></i>Hit rate (%)</span></div><div class="chart-container" id="progress-chart">${chart(sessions)}</div></div>
+ <div class="panel"><div class="panel-head"><div><h2 class="panel-title">Find your next focus</h2><p class="panel-subtitle">A smarter way to spend your practice</p></div></div><div class="practice-list"><button class="practice-row" data-focus="accuracy"><span class="tool-icon">${icon('target')}</span><span><strong>Make accuracy a habit</strong><small>30 darts. One target. Total focus.</small></span><span class="row-arrow">↗</span></button><button class="practice-row" data-focus="coach"><span class="tool-icon green">${icon('camera')}</span><span><strong>See your throw differently</strong><small>Slow-motion video & pose comparison</small></span><span class="row-arrow">↗</span></button><button class="practice-row" data-focus="checkout"><span class="tool-icon blue">${icon('route')}</span><span><strong>Know your way to zero</strong><small>Plan the finish before you throw.</small></span><span class="row-arrow">↗</span></button></div></div></div>
+ <div class="panel recent-panel"><div class="panel-head"><div><h2 class="panel-title">Back at the board</h2><p class="panel-subtitle">${demo?'A preview of your training history':'Your latest training sessions'}</p></div><a class="view-link" href="#sessions">View all sessions <span>→</span></a></div>${table(sessions.slice(0,3))}</div>
+ <div class="demo-strip"><span></span>${demo?'You’re viewing sample data. Complete your first practice to start your own story.':'Your training history is stored in this browser. Export a backup from My sessions.'}</div></section>`;
+ $('#hero-start').onclick=()=>go('practice');$('#chart-range').onchange=e=>{chartRange=Number(e.target.value);$('#progress-chart').innerHTML=chart(sessions);};$$('[data-focus]').forEach(b=>b.onclick=()=>{if(b.dataset.focus==='accuracy'){go('practice');}else go(b.dataset.focus);});bindRows();
+}
+function statCard(label,value,type,foot,kind){return `<div class="stat-card"><div class="stat-top"><span>${label}</span>${icon(type)}</div><div class="stat-value">${value}</div><div class="stat-foot">${isDemo()?'<span class="trend-up">Sample</span>':''}<span>${foot}</span><svg class="mini-line" width="48" height="18" viewBox="0 0 48 18" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M1 15 7 13 12 15 18 8 23 11 29 6 34 8 41 3 47 2"/></svg></div></div>`;}
+function chart(sessions){const list=[...sessions].reverse().slice(-chartRange), vals=list.map(s=>({avg:stats(s).threeDartAverage,hit:stats(s).hitRate||0,label:dateText(s.startedAt)}));if(!vals.length)return '<div class="empty-state">Your progress chart starts with your first practice.</div>';const width=580,height=180,left=28,right=12,top=17,bottom=32,max=Math.max(100,Math.ceil(Math.max(...vals.map(x=>x.avg))/20)*20),scaleY=v=>height-bottom-v/max*(height-top-bottom),scaleX=i=>left+(vals.length===1?(width-left-right)/2:i/(vals.length-1)*(width-left-right));let grid=[0,.25,.5,.75,1].map(v=>{const y=scaleY(v*max);return `<line x1="${left}" x2="${width-right}" y1="${y}" y2="${y}" stroke="#f0f2f5" stroke-dasharray="3 4"/><text x="${left-9}" y="${y+3}" text-anchor="end" font-size="8" fill="#b2bac4">${Math.round(v*max)}</text>`;}).join('');const path=key=>vals.map((v,i)=>`${i?'L':'M'}${scaleX(i)} ${scaleY(v[key])}`).join(' ');let curves=`<path d="${path('avg')} L${scaleX(vals.length-1)} ${scaleY(0)} L${scaleX(0)} ${scaleY(0)} Z" fill="#fdf2ec" opacity=".65"/><path d="${path('hit')}" fill="none" stroke="#b0c5b5" stroke-width="1.8" stroke-dasharray="4 4"/><path d="${path('avg')}" fill="none" stroke="#ed9174" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>`;return `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Progress across ${vals.length} sessions: orange is three-dart average, green is target hit percentage.">${grid}${curves}${vals.map((v,i)=>`<circle cx="${scaleX(i)}" cy="${scaleY(v.avg)}" r="3.2" fill="#ee9a7c" stroke="white" stroke-width="1.8"><title>${v.label}: average ${fmt(v.avg)}, hit rate ${fmt(v.hit)}%</title></circle>${vals.length<10||i%Math.ceil(vals.length/8)===0?`<text x="${scaleX(i)}" y="${height-11}" text-anchor="middle" font-size="8" fill="#a9b2bd">${v.label}</text>`:''}`).join('')}</svg>`;}
+
+function renderPractice(){const active=data.active;
+ $('#main').innerHTML=`<section>${heading('Good practice starts here.','Choose a target, log your darts, and make progress you can see.',`<div class="toolbar"><button class="secondary-button" id="practice-help">${icon('help')}How to log</button></div>`)}
+ ${active?'':'<div class="notice">Set up your session below. Tap the board or use the number pad to record where each dart lands.</div>'}
+ <div class="practice-layout"><div class="panel"><div class="panel-head"><div><h2 class="panel-title">${active?'Your board':'Meet your next target'}</h2><p class="panel-subtitle">${active?'Select the segment you actually hit':'The smallest improvements add up.'}</p></div><span class="type-badge">${active?(active.mode==='x01'?'Double-out':'Accuracy'):'Manual scoring'}</span></div><div class="board-wrap">${dartboard(!!active)}</div><p class="board-hint">${active?'Tap a scoring segment to log a dart.':'Your session begins when you’re ready.'}</p></div>
+ <div class="panel" id="practice-controls">${active?liveControls(active):setupControls()}</div></div></section>`;
+ $('#practice-help').onclick=()=>openModal('A simple training rhythm',`<p>Throw a dart at the target, then log the segment it actually hit. The app records one dart per tap.</p><ul><li>Use the board, or select Single / Double / Treble and a number.</li><li>Bull is 50. Outer bull is 25. A miss scores 0.</li><li>Accuracy counts an exact segment match to your target.</li><li>Double-out requires exactly zero with the final dart on a double. A bust resets the whole visit.</li></ul>`);
+ if(active)bindLive();else bindSetup();
+}
+function setupControls(){return `<p class="eyebrow">YOUR NEXT SESSION</p><h2 class="panel-title" style="font-size:20px;margin-bottom:7px">A little focus goes a long way.</h2><p class="panel-subtitle" style="margin-bottom:23px">Build a session around the skill you want to improve.</p><div class="form-row"><div class="form-field"><label class="control-label" for="practice-mode">Training mode</label><select class="input" id="practice-mode"><option value="accuracy">Target accuracy</option><option value="x01">501 · Double-out</option></select></div></div><div class="form-row" id="accuracy-fields"><div class="form-field"><label class="control-label" for="practice-target">Your target</label><select class="input" id="practice-target">${targetOptions('T20')}</select></div><div class="form-field"><label class="control-label" for="practice-length">Darts per session</label><select class="input" id="practice-length"><option value="30">30 darts</option><option value="60">60 darts</option><option value="90">90 darts</option></select></div></div><div class="form-row" id="x01-fields" hidden><div class="form-field"><label class="control-label" for="practice-initial">Starting score</label><select class="input" id="practice-initial"><option value="501">501</option><option value="301">301</option><option value="101">101</option></select></div></div><div class="strategy-note"><h3>One thing to focus on</h3><p>Keep your routine repeatable. Aim at the same small point, settle, then throw.</p></div><div class="start-training"><p>A fresh session.<br>A new chance to improve.</p><button class="primary-button" id="begin-session" style="margin-left:auto">Let’s throw ${icon('arrow')}</button></div>`;}
+function targetOptions(selected){return [...SEGMENTS.filter(s=>s.multiplier===3),...SEGMENTS.filter(s=>s.isDouble&&s.id!=='DB'),...SEGMENTS.filter(s=>s.multiplier===1&&s.number<=20),parseSegment('SB'),parseSegment('DB')].map(s=>`<option value="${s.id}" ${s.id===selected?'selected':''}>${s.id.startsWith('T')?'Treble '+s.number:s.id.startsWith('D')&&s.id!=='DB'?'Double '+s.number:s.id==='DB'?'Bull · 50':s.id==='SB'?'Outer bull · 25':'Single '+s.number}</option>`).join('');}
+function bindSetup(){ $('#practice-mode').onchange=e=>{$('#accuracy-fields').hidden=e.target.value!=='accuracy';$('#x01-fields').hidden=e.target.value!=='x01';};$('#begin-session').onclick=()=>{const mode=$('#practice-mode').value;startSession(mode,mode==='accuracy'?$('#practice-target').value:null,mode==='accuracy'?Number($('#practice-length').value):Number($('#practice-initial').value));};}
+function startSession(mode='accuracy',target='T20',value=30){if(data.active){go('practice');toast('Your current session is ready to continue.');return;}const now=new Date().toISOString();data.active={id:crypto.randomUUID(),mode,name:mode==='accuracy'?`${parseSegment(target).label} accuracy`:`${value} double-out`,target,goal:mode==='accuracy'?value:0,initial:mode==='x01'?value:0,remaining:mode==='x01'?value:0,turnStart:mode==='x01'?value:0,dartInVisit:0,throws:[],startedAt:now};persist();go('practice');renderPractice();}
+function targetFor(s){if(s.mode==='accuracy')return s.target;const c=getCheckout(s.remaining,3-s.dartInVisit);return c.route[0]||c.setup?.target||'T20';}
+function liveControls(s){const st=stats(s),isX=s.mode==='x01',target=targetFor(s),progress=isX?Math.round(((s.initial-s.remaining)/s.initial)*100):Math.round(s.throws.length/s.goal*100);return `<div class="session-summary"><div><p class="remaining-label">${isX?'POINTS REMAINING':'DARTS LOGGED'}</p><strong class="big-remaining">${isX?s.remaining:`${s.throws.length}<small style="font-size:16px;color:#aab2bc;letter-spacing:0"> / ${s.goal}</small>`}</strong></div><div class="session-target"><small>${isX?'SUGGESTED AIM':'YOUR TARGET'}</small><strong>${parseSegment(target).label}</strong></div></div><div class="progress-track" style="background:#f0f2f4;margin-bottom:20px"><span style="width:${progress}%;background:#eaa285"></span></div><div class="panel-head" style="margin-bottom:12px"><label class="control-label" style="margin:0">Where did your dart land?</label><span class="panel-subtitle">${isX?`Visit · dart ${s.dartInVisit+1} of 3`:'One tap = one dart'}</span></div><div class="multipliers">${['S','D','T'].map((m,i)=>`<button data-multiplier="${m}" class="${multiplier===m?'active':''}" aria-pressed="${multiplier===m}">${['Single','Double','Treble'][i]}</button>`).join('')}</div><div class="number-grid">${Array.from({length:20},(_,i)=>`<button data-number="${i+1}" aria-label="Log ${multiplier}${i+1}">${i+1}</button>`).join('')}</div><div class="special-scores"><button data-hit="SB">25 · Outer bull</button><button data-hit="DB">50 · Bull</button><button data-hit="MISS">Miss · 0</button></div><div class="throw-log">${s.throws.length?s.throws.slice(-9).map(t=>`<span class="throw-chip ${t.segment===t.target?'hit':''}" title="${t.bust?'Bust. Whole visit reset.':'Target: '+parseSegment(t.target).label}">${parseSegment(t.segment).label}${t.bust?' ×':''}</span>`).join(''):'<span class="panel-subtitle" style="margin-top:7px">Your first dart starts the story.</span>'}</div><div class="live-stats"><div><strong>${fmt(st.threeDartAverage)}</strong><small>3-dart average</small></div><div><strong>${fmt(st.hitRate||0)}%</strong><small>Target hit rate</small></div><div><strong>${st.bestVisit}</strong><small>Best visit</small></div></div>${isX?`<p class="panel-subtitle">${escapeHtml(getCheckout(s.remaining,3-s.dartInVisit).message)}</p>`:''}<div class="practice-actions"><button class="secondary-button" id="undo-throw" ${!s.throws.length?'disabled':''}>${icon('undo')}Undo</button><button class="primary-button" id="finish-session">Finish & save ${icon('check')}</button></div><button class="text-button" id="discard-session" style="color:#adb2b9;font-size:9px;margin-top:18px">Discard this session</button>`;}
+function bindLive(){ $$('[data-multiplier]').forEach(b=>b.onclick=()=>{multiplier=b.dataset.multiplier;$('#practice-controls').innerHTML=liveControls(data.active);bindLiveControls();});bindLiveControls();$$('[data-segment]').forEach(el=>{el.onclick=()=>logThrow(el.dataset.segment);el.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();logThrow(el.dataset.segment);}};});}
+function bindLiveControls(){ $$('[data-multiplier]').forEach(b=>b.onclick=()=>{multiplier=b.dataset.multiplier;$('#practice-controls').innerHTML=liveControls(data.active);bindLiveControls();});$$('[data-number]').forEach(b=>b.onclick=()=>logThrow(multiplier+b.dataset.number));$$('[data-hit]').forEach(b=>b.onclick=()=>logThrow(b.dataset.hit));$('#undo-throw').onclick=undoThrow;$('#finish-session').onclick=()=>finishSession();$('#discard-session').onclick=()=>openModal('Discard this practice?',`<p>This removes the ${data.active.throws.length} darts in your current session.</p>`,`<button class="secondary-button" data-close>Keep practicing</button><button class="primary-button" id="confirm-discard">Discard session</button>`,()=>{$('#confirm-discard').onclick=()=>{data.active=null;persist();closeModal();renderPractice();toast('Session discarded. Ready for a fresh start.');};});}
+function logThrow(segment){const s=data.active;if(!s)return;const row={segment,target:targetFor(s),at:new Date().toISOString()};let message='';if(s.mode==='x01'){const result=applyThrow(s.remaining,segment,s.turnStart);s.remaining=result.remaining;s.dartInVisit++;row.bust=result.bust;row.visitEnd=result.bust||result.checkout||s.dartInVisit===3;if(row.visitEnd){s.dartInVisit=0;s.turnStart=s.remaining;}if(result.bust)message=`Bust — ${result.reason.toLowerCase()}. Visit resets to ${s.remaining}.`;if(result.checkout){s.throws.push(row);persist();finishSession(true);return;}}
+ s.throws.push(row);persist();$('#practice-controls').innerHTML=liveControls(s);bindLiveControls();if(message)toast(message);if(s.mode==='accuracy'&&s.throws.length>=s.goal)finishSession(true);
+}
+function undoThrow(){const s=data.active;if(!s?.throws.length)return;const old=s.throws.slice(0,-1);s.throws=[];s.remaining=s.initial;s.turnStart=s.initial;s.dartInVisit=0;for(const original of old){const row={...original};if(s.mode==='x01'){const result=applyThrow(s.remaining,row.segment,s.turnStart);s.remaining=result.remaining;s.dartInVisit++;row.bust=result.bust;row.visitEnd=result.bust||result.checkout||s.dartInVisit===3;if(row.visitEnd){s.dartInVisit=0;s.turnStart=s.remaining;}}s.throws.push(row);}persist();$('#practice-controls').innerHTML=liveControls(s);bindLiveControls();toast('Last dart removed.');}
+function finishSession(complete=false){const s=data.active;if(!s?.throws.length){toast('Log a dart before saving your session.');return;}s.duration=Math.max(1,Math.round((Date.now()-new Date(s.startedAt))/1000));s.complete=complete;s.endedAt=new Date().toISOString();data.sessions.unshift(s);data.active=null;persist();const st=stats(s);renderPractice();openModal(complete?(s.mode==='x01'?'That’s a checkout!':'Practice, made progress.'):'Another session in the books.',`<p>${s.mode==='x01'&&complete?'Exactly zero. Finished on a double. Nicely done.':'Your darts are saved. Keep building that consistency.'}</p><div class="result-stats"><div><strong>${st.throws}</strong><small>Darts thrown</small></div><div><strong>${fmt(st.threeDartAverage)}</strong><small>3-dart avg.</small></div><div><strong>${fmt(st.hitRate||0)}%</strong><small>Target hits</small></div></div>`,`<button class="secondary-button" id="result-sessions">View session history</button><button class="primary-button" data-close>Keep practicing</button>`,()=>{$('#result-sessions').onclick=()=>{closeModal();go('sessions');};});}
+
+function renderCheckout(){const result=getCheckout(checkoutScore,checkoutDarts),route=result.finishable?result.route:result.setup?.route||[];
+ $('#main').innerHTML=`<section>${heading('See the finish before you throw.','Learn your routes, leave a good double, and find your way to exactly zero.')}<div class="checkout-layout"><div class="panel"><p class="eyebrow">PLAN YOUR CHECKOUT</p><label class="control-label" for="checkout-score">Points remaining</label><input type="number" id="checkout-score" class="score-input" min="2" max="1001" step="1" value="${checkoutScore}" aria-label="Points remaining"><div class="form-row"><div class="form-field"><label class="control-label" for="checkout-darts">Darts in hand</label><select class="input" id="checkout-darts">${[3,2,1].map(x=>`<option value="${x}" ${x===checkoutDarts?'selected':''}>${x} dart${x===1?'':'s'}</option>`).join('')}</select></div></div><div class="quick-scores">${[32,40,81,100,121,170].map(x=>`<button data-score="${x}">${x}</button>`).join('')}</div><button class="primary-button" id="find-route" style="width:100%;margin-top:21px">Find my route ${icon('arrow')}</button><p class="panel-subtitle" style="font-size:9px;line-height:1.8;margin-top:14px">Standard double-out. Inner bull counts as a double. Suggested routes are options, not a unique best choice.</p></div><div class="panel"><div class="panel-head"><div><h2 class="panel-title">${result.finishable?'Your route to zero':'Set up your next visit'}</h2><p class="panel-subtitle">${result.finishable?'Stay composed. Take it one dart at a time.':'A smart leave is part of the game.'}</p></div><span class="type-badge ${result.finishable?'':'peach'}">${result.finishable?'Finish available':'Setup visit'}</span></div><div class="checkout-route">${route.map((id,i)=>{const s=parseSegment(id);return `${i?'<span class="route-arrow">→</span>':''}<div class="route-dart ${i===route.length-1&&result.finishable?'finish':''}"><small>DART ${i+1}</small><strong>${s.label}</strong><p>${s.score} points${s.isDouble?' · double':''}</p></div>`;}).join('')}</div><p class="route-message">${escapeHtml(result.message)}</p>${result.finishable?result.alternatives.slice(0,2).map((r,i)=>`<div class="alternative"><span>Alternative ${i+1}</span><strong>${r.map(x=>parseSegment(x).label).join(' → ')}</strong></div>`).join(''):result.setup?`<div class="alternative"><span>Leave for your next visit</span><strong>${result.setup.remaining} points</strong></div>`:''}<div class="strategy-note"><h3>Think one dart ahead.</h3><p>${checkoutScore===170?'170 is the highest three-dart double-out finish: two treble 20s and the bull.':result.finishable?'Recalculate after each dart. A missed treble can still leave a simple route to a double.':'You don’t need to force the finish. Score toward a number you can close on your next visit.'}</p></div><button class="secondary-button" id="practice-checkout" style="margin-top:22px">${icon('target')}Practice from ${checkoutScore}</button></div></div><div class="notice" style="margin-top:23px">Double-out rule: finish on exactly 0 with a double. Going below 0, leaving 1, or reaching 0 without a double busts the whole visit.</div></section>`;
+ const update=()=>{const score=Number($('#checkout-score').value),darts=Number($('#checkout-darts').value);if(!Number.isInteger(score)||score<2||score>1001){toast('Enter a whole score from 2 to 1001.');$('#checkout-score').focus();return;}checkoutScore=score;checkoutDarts=darts;renderCheckout();};$('#find-route').onclick=update;$('#checkout-score').onkeydown=e=>{if(e.key==='Enter')update();};$('#checkout-darts').onchange=update;$$('[data-score]').forEach(b=>b.onclick=()=>{checkoutScore=Number(b.dataset.score);renderCheckout();});$('#practice-checkout').onclick=()=>startSession('x01',null,checkoutScore);
+}
+function renderSessions(filter='all'){const sessions=displayedSessions(),rows=sessions.filter(s=>filter==='all'||s.mode===filter),demo=isDemo();$('#main').innerHTML=`<section>${heading('Your effort, all in one place.','Every session is another step toward a more confident game.',`<div class="toolbar"><button class="secondary-button" id="export-sessions">${icon('download')}Export CSV</button><button class="primary-button" id="new-session">${icon('plus')}New practice</button></div>`)}<div class="session-controls"><span class="sample-pill"><i></i>${demo?'SAMPLE SESSIONS · COMPLETE A PRACTICE TO START YOUR OWN':data.sessions.length+' SAVED SESSION'+(data.sessions.length===1?'':'S')}</span><select class="input" id="session-filter" aria-label="Filter sessions"><option value="all">All training</option><option value="accuracy">Target accuracy</option><option value="x01">Double-out</option></select></div><div class="panel recent-panel all-sessions-panel">${rows.length?table(rows):`<div class="empty-state">${icon('history')}<h3>Your next practice belongs here.</h3><p>No sessions in this training mode yet.</p><button class="primary-button" id="empty-start">Start a practice</button></div>`}</div><div class="notice" style="margin-top:20px">${icon('shield').replace('<svg ','<svg style="width:15px;height:15px;display:inline-block;vertical-align:middle;margin-right:6px" ')}${demo?'These examples show how your history will look.':'Your sessions stay in this browser.'} Export a CSV backup to keep your training records.</div></section>`;$('#session-filter').value=filter;$('#session-filter').onchange=e=>renderSessions(e.target.value);$('#new-session').onclick=()=>go('practice');$('#export-sessions').onclick=exportCSV;$('#empty-start')?.addEventListener('click',()=>go('practice'));bindRows();}
+function exportCSV(){const sessions=displayedSessions();const header=['Session','Date','Mode','Target','Darts','Hit rate (%)','3-dart average','Best visit','Duration (seconds)','Sample'];const rows=sessions.map(s=>{const st=stats(s);return [s.name,s.startedAt,s.mode,s.target||'Dynamic checkout',st.throws,fmt(st.hitRate||0),fmt(st.threeDartAverage),st.bestVisit,s.duration,s.sample?'Yes':'No'];});const csv=[header,...rows].map(r=>r.map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\r\n');const url=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8;'}));const a=document.createElement('a');a.href=url;a.download=`dartboard-${isDemo()?'sample-':''}sessions-${new Date().toISOString().slice(0,10)}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);toast(isDemo()?'Sample session CSV downloaded.':'Your training backup is downloaded.');}
+function showSession(id){const s=displayedSessions().find(s=>s.id===id);if(!s)return;const st=stats(s);openModal(escapeHtml(s.name),`<p>${dateFull(s.startedAt)} · ${duration(s)} · ${s.sample?'Sample session':s.mode==='x01'?s.complete?'Checkout completed':'Double-out practice':'Target accuracy'}</p><div class="result-stats"><div><strong>${st.throws}</strong><small>Darts</small></div><div><strong>${fmt(st.threeDartAverage)}</strong><small>3-dart avg.</small></div><div><strong>${fmt(st.hitRate||0)}%</strong><small>Hit rate</small></div></div><h3>Your darts</h3><div class="throw-log">${s.throws.map(t=>`<span class="throw-chip ${t.target===t.segment?'hit':''}">${parseSegment(t.segment).label}${t.bust?' ×':''}</span>`).join('')}</div><p>${st.hits} exact target hits. Best visit: ${st.bestVisit} points.${s.mode==='x01'?` ${s.remaining} points left.`:''}</p>`,`${s.sample?'':'<button class="secondary-button delete-button" id="delete-session">Delete session</button>'}<button class="primary-button" data-close>Done</button>`,()=>{if(!s.sample)$('#delete-session').onclick=()=>openModal('Delete this session?',`<p>This removes ${escapeHtml(s.name)} and its ${s.throws.length} recorded darts from this device.</p>`,`<button class="secondary-button" data-close>Keep session</button><button class="primary-button" id="delete-confirm">Delete session</button>`,()=>{$('#delete-confirm').onclick=()=>{data.sessions=data.sessions.filter(x=>x.id!==s.id);persist();closeModal();render();toast('Session deleted.');};});});}
+
+function openModal(title,body,buttons='<button class="primary-button" data-close>Got it</button>',after){$('#modal-content').innerHTML=`<div class="modal-inner"><div class="modal-top"><h2>${title}</h2><button class="icon-button" data-close aria-label="Close dialog">${icon('close')}</button></div>${body}<div class="modal-buttons">${buttons}</div></div>`;$$('[data-close]').forEach(b=>b.onclick=closeModal);if(!$('#modal').open)$('#modal').showModal();after?.();}
+function closeModal(){$('#modal').close();}
+$('#modal').addEventListener('click',e=>{if(e.target===$('#modal')){const r=$('#modal').getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeModal();}});
+function settings(){openModal('Make this space yours.',`<p>A few small details for your training space.</p><label><span class="control-label">Your name</span><input class="input" id="setting-name" maxlength="30" placeholder="What should we call you?" value="${escapeHtml(data.profile.name)}"></label><label><span class="control-label">Throwing hand</span><select class="input" id="setting-hand"><option value="right">Right-handed</option><option value="left">Left-handed</option></select></label><p style="font-size:10px">Preferences and training history are saved on this device. Videos are processed locally and are not stored after you leave the form coach.</p>`,`<button class="secondary-button" data-close>Cancel</button><button class="primary-button" id="save-settings">Save preferences</button>`,()=>{$('#setting-hand').value=data.profile.hand;$('#save-settings').onclick=()=>{data.profile={name:$('#setting-name').value.trim(),hand:$('#setting-hand').value};persist();updateProfile();closeModal();render();toast('Your preferences are saved.');};});}
+$('#settings-btn').onclick=$('#profile-btn').onclick=settings;
+$('#quick-drill').onclick=()=>startSession('accuracy','D16',30);
+$('#help-btn').onclick=()=>openModal('A better practice, one dart at a time.',`<ul><li><strong>Pick one focus.</strong> Choose a target and repeat a comfortable, steady routine.</li><li><strong>Track the real result.</strong> Log where each dart lands, including misses.</li><li><strong>Look for consistency.</strong> Review several throws from the same camera angle.</li><li><strong>Plan the finish.</strong> Learn a route, then adjust after every dart.</li></ul><p>Use the Form coach to compare your own clips with a professional reference. Pose measurements are experimental observations, not a verdict on your technique.</p>`);
+$('#mobile-menu').onclick=()=>$('#sidebar').classList.toggle('open');
+document.addEventListener('click',e=>{if(window.innerWidth<=760&&!e.target.closest('#sidebar')&&!e.target.closest('#mobile-menu'))$('#sidebar').classList.remove('open');});
+function go(next){if(location.hash==='#'+next){render();return;}location.hash=next;}
+function render(){cleanupCoach?.();cleanupCoach=null;view=labels[location.hash.slice(1)]?location.hash.slice(1):'overview';$$('[data-nav]').forEach(a=>{const active=a.dataset.nav===view;a.classList.toggle('active',active);if(active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});$('#page-crumb').textContent=labels[view];$('#sidebar').classList.remove('open');if(view==='overview')renderOverview();else if(view==='practice')renderPractice();else if(view==='checkout')renderCheckout();else if(view==='sessions')renderSessions();else{$('#main').innerHTML=`<section>${heading('Better form starts with a closer look.','A private video workspace for more intentional practice.')}<div id="coach-mount"></div></section>`;cleanupCoach=mountCoach($('#coach-mount'));const arm=$('[data-arm]');if(arm)arm.value=data.profile.hand;}document.title=`${labels[view]} · DartBoard`;}
+window.addEventListener('hashchange',()=>{render();window.scrollTo({top:0,behavior:'instant'});});
+render();
+
+return {};
+})();
+
+document.querySelector('#local-file-note').hidden = location.protocol !== 'file:';
+</script>
+</body>
+</html>
